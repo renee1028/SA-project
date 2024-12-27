@@ -9,6 +9,5 @@ obj/
 *.suo
 *.userosscache
 
-# 忽略其他不需要的檔案
-node_modules/
+
 
