@@ -1,0 +1,14 @@
+# 忽略編譯和臨時檔案
+bin/
+obj/
+
+# 忽略 Visual Studio 設定檔
+.vs/
+.vscode/
+*.user
+*.suo
+*.userosscache
+
+# 忽略其他不需要的檔案
+node_modules/
+
