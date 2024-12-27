@@ -1,0 +1,63 @@
+﻿@model IEnumerable<WebApplication1.Models.Patient>
+@{
+    Layout = "_Layout";
+    var patient = ViewData["patientInfo"] as dynamic;
+}
+
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>首頁 - 側邊欄佈局</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+     
+</head>
+<body>
+
+    
+
+    <!-- 主內容區域 -->
+    <div class="col-md-9 main-content">
+        <h2>看診通知</h2>
+        <hr />
+
+        <div class="form-box">
+            <div class="form-control" readonly id="statusText">
+                尚未預約看診
+            </div>
+        </div>
+        <br />
+
+        <h2>患者資訊</h2>
+        <hr />
+        <p>
+            姓名：@{
+                var name = @patient.Patient_name.ToString();
+                var maskedName = name;
+                if (name.Length == 3) { maskedName = name.Substring(0, 1) + "○" + name.Substring(2, 1); }
+                else if (name.Length == 2) { maskedName = name.Substring(0, 1) + "○"; }
+            }
+            @maskedName
+        </p>
+        <p> 生理性別：@patient.Patient_gender </p>
+        <p>
+            身份證字號：@{
+                var nidcard = @patient.Patient_nidcard.ToString();
+                var maskedNidcard = nidcard.Substring(0, 2) + new string('*', nidcard.Length - 5) + nidcard.Substring(nidcard.Length - 3);
+            }
+            @maskedNidcard
+        </p>
+        <p> 出身日期： @patient.Patient_birth</p>
+        <p>
+            手機號碼：@{
+        var phone = @patient.Patient_phone.ToString();
+        var maskedPhone = phone.Substring(0, 2) + new string('*', phone.Length - 5) + phone.Substring(phone.Length - 3);
+    }
+    @maskedPhone
+        </p>
+
+        <button class="btn btn-primary" onclick="history.back()">回上一頁</button>
+    </div>
+</body>
+</html>

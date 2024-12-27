@@ -1,0 +1,37 @@
+﻿@model IEnumerable<dynamic>
+@{
+    ViewData["Title"] = "MRecordList";
+}
+
+<p style="font-size: 25px;"><img src="~/images/record.png" width="30px" class="d-inline-block align-text-top" alt="看診記錄">查詢看診記錄</p>
+<hr />
+
+@foreach (var group in Model)
+{
+    <div style="margin-bottom: 30px;">
+        <!-- 科別標題 -->
+        <h3 style="text-align: center; background-color: #65A7B2; padding: 10px; margin: 0; font-size: 1.25rem; border-radius: 5px; border: 1px solid #ddd; color: #FFFFFF;">
+            @group.Key
+        </h3>
+
+        <table class="table table-bordered table-hover" style="background-color: #EFF5FA;">
+            <tbody>
+                @foreach (var record in group)
+                {
+                    <tr>
+                        <td>@record.MRecord_date.ToString("yyyy/MM/dd")</td>
+                        <td>@record.Doctor_specialization</td>
+                        <td>@record.Doctor_name</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+}
+
+@if (ViewData["Message"] != null)
+{
+    <div class="alert alert-warning" role="alert">
+        @ViewData["Message"]
+    </div>
+}

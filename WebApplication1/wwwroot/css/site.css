@@ -1,0 +1,68 @@
+html {
+  font-size: 14px;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
+  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  margin-bottom: 60px;
+}
+
+/* 側邊欄樣式 */
+.sidebar {
+    background-color: #fff;
+    padding-top: 20px;
+    padding-left: 20px;
+    max-width: 220px; /* 限制側邊欄的最大寬度 */
+    width: 100%; /* 設置寬度為100%以便在小螢幕上可自適應 */
+}
+
+/* 外部框框 */
+.menu-container {
+    border: 2px solid #ccc;
+    border-radius: 8px;
+    padding: 8px;
+    margin-bottom: 14px; /* 避免過於擁擠 */
+}
+
+    .menu-container h5 {
+        background-color: #8ac5cb;
+        color: white;
+        text-align: center;
+        padding: 5px 0;
+        margin: 0;
+        border-radius: 8px;
+        margin-bottom: 10px;
+    }
+
+.sidebar a {
+    color: #333;
+    text-decoration: none;
+    font-size: 14px; /* 字體縮小 */
+    padding: 6px 12px; /* 調整按鈕的間距 */
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    display: block;
+    margin-bottom: 6px;
+}
+
+    /* 滑鼠懸停時字體變紅色 */
+    .sidebar a:hover {
+        background-color: #f8f8f8;
+        color: red; /* 設置字體顏色為紅色 */
+    }
+
+

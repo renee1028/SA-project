@@ -1,0 +1,84 @@
+﻿<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Health</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/WebApplication1.styles.css" asp-append-version="true" />
+</head>
+<body>
+<header>
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+            <div class="container-fluid d-flex justify-content-between">
+                <a class="navbar-brand" href="/index.html">
+                    <img src="/images/icon.png" width="30" class="d-inline-block align-text-top" alt="logo"><b> HEALTH</b></a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-end" id="navbarNav">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Account" asp-action="Homepage">
+                                <img src="/images/home.png" width="30" class="d-inline-block align-text-top" alt="Homelogo">
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="MRecord" asp-action="searchPage">
+                                <img src="/images/search.png" width="30" class="d-inline-block align-text-top" alt="Searchlogo">
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Reserv" asp-action="searchHospital">
+                                <img src="/images/reserv.png" width="30" class="d-inline-block align-text-top" alt="Reservationlogo">
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Account" asp-action="Logout">
+                                <img src="/images/logout.png" width="30" class="d-inline-block align-text-top" alt="Logoutlogo">
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12 col-md-2 collapse d-lg-block " id="sidebarCollapse">
+                <div class="sidebar">
+                    <div class="menu-container">
+                        <h5>功能</h5>
+                        <ul class="nav flex-column">
+                            <li class="nav-item"><a class="nav-link" href="/Reserv/searchHospital">⊕ 預約掛號</a></li>
+                            <li class="nav-item"><a class="nav-link" href="/MRecord/MRecordList">⊕ 查詢病歷</a></li>
+                            <li class="nav-item"><a class="nav-link" href="/MRecord/Consultation">⊕ 查詢看診記錄</a></li>
+                            <li class="nav-item"><a class="nav-link" href="#">⊕ 查詢檢驗報告</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <!-- 主要內容區域 -->
+            <div class="col-md-10">
+                <main role="main" class="pb-3">
+                    @RenderBody()
+                </main>
+            </div>
+        </div>
+    </div>
+
+    <footer class="border-top footer text-muted" style="text-align: center;background-color: #859FB6;">
+        <div class="container" style="color: #ffffff;">
+            &commat; Group 12 Medical Share System
+        </div>
+    </footer>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>
+

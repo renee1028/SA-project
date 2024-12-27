@@ -1,0 +1,53 @@
+﻿@model WebApplication1.Models.MRecord
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>病歷詳情</h1>
+
+<div>
+    <h4>MRecord</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Patient_id)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Patient_id)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Doctor_id)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Doctor_id)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.MRecord_diagnosis)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.MRecord_diagnosis)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.MRecord_treatmentplan)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.MRecord_treatmentplan)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.MRecord_date)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.MRecord_date)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.MRecord_prescription)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.MRecord_prescription)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-controller="MRecord" asp-action="MRecordList">返回病歷清單</a>
+</div>
