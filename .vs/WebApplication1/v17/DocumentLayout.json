@@ -1,97 +1,37 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\ngsno\\OneDrive\\\u6587\u4EF6\\SA-project\\",
+  "WorkspaceRootPath": "C:\\Users\\ASUS\\Desktop\\\u7CFB\u7D71\u5206\u6790\\WebApplication1\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\ngsno\\OneDrive\\\u6587\u4EF6\\SA-project\\WebApplication1\\obj\\Debug\\net8.0\\.NETCoreApp,Version=v8.0.AssemblyAttributes.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:WebApplication1\\obj\\Debug\\net8.0\\.NETCoreApp,Version=v8.0.AssemblyAttributes.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\ngsno\\OneDrive\\\u6587\u4EF6\\SA-project\\WebApplication1\\obj\\Debug\\net8.0\\staticwebassets\\msbuild.WebApplication1.Microsoft.AspNetCore.StaticWebAssets.props||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:WebApplication1\\obj\\Debug\\net8.0\\staticwebassets\\msbuild.WebApplication1.Microsoft.AspNetCore.StaticWebAssets.props||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\ngsno\\OneDrive\\\u6587\u4EF6\\SA-project\\WebApplication1\\obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildTransitive.WebApplication1.props||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:WebApplication1\\obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildTransitive.WebApplication1.props||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\ngsno\\OneDrive\\\u6587\u4EF6\\SA-project\\WebApplication1\\obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildMultiTargeting.WebApplication1.props||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:WebApplication1\\obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildMultiTargeting.WebApplication1.props||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\ngsno\\OneDrive\\\u6587\u4EF6\\SA-project\\WebApplication1\\obj\\Debug\\net8.0\\staticwebassets\\msbuild.build.WebApplication1.props||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:WebApplication1\\obj\\Debug\\net8.0\\staticwebassets\\msbuild.build.WebApplication1.props||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F3F81273-4E4B-4829-81FA-87CB184552F8}|WebApplication1\\WebApplication1.csproj|c:\\users\\ngsno\\onedrive\\\u6587\u4EF6\\sa-project\\webapplication1\\models\\reservation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F3F81273-4E4B-4829-81FA-87CB184552F8}|WebApplication1\\WebApplication1.csproj|solutionrelative:webapplication1\\models\\reservation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F3F81273-4E4B-4829-81FA-87CB184552F8}|WebApplication1\\WebApplication1.csproj|c:\\users\\ngsno\\onedrive\\\u6587\u4EF6\\sa-project\\webapplication1\\models\\patient.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F3F81273-4E4B-4829-81FA-87CB184552F8}|WebApplication1\\WebApplication1.csproj|solutionrelative:webapplication1\\models\\patient.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F3F81273-4E4B-4829-81FA-87CB184552F8}|WebApplication1\\WebApplication1.csproj|c:\\users\\ngsno\\onedrive\\\u6587\u4EF6\\sa-project\\webapplication1\\models\\mrecord.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F3F81273-4E4B-4829-81FA-87CB184552F8}|WebApplication1\\WebApplication1.csproj|solutionrelative:webapplication1\\models\\mrecord.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F3F81273-4E4B-4829-81FA-87CB184552F8}|WebApplication1\\WebApplication1.csproj|c:\\users\\ngsno\\onedrive\\\u6587\u4EF6\\sa-project\\webapplication1\\models\\hospital.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F3F81273-4E4B-4829-81FA-87CB184552F8}|WebApplication1\\WebApplication1.csproj|solutionrelative:webapplication1\\models\\hospital.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F3F81273-4E4B-4829-81FA-87CB184552F8}|WebApplication1\\WebApplication1.csproj|c:\\users\\ngsno\\onedrive\\\u6587\u4EF6\\sa-project\\webapplication1\\models\\errorviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F3F81273-4E4B-4829-81FA-87CB184552F8}|WebApplication1\\WebApplication1.csproj|solutionrelative:webapplication1\\models\\errorviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F3F81273-4E4B-4829-81FA-87CB184552F8}|WebApplication1\\WebApplication1.csproj|c:\\users\\ngsno\\onedrive\\\u6587\u4EF6\\sa-project\\webapplication1\\models\\doctor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F3F81273-4E4B-4829-81FA-87CB184552F8}|WebApplication1\\WebApplication1.csproj|solutionrelative:webapplication1\\models\\doctor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F3F81273-4E4B-4829-81FA-87CB184552F8}|WebApplication1\\WebApplication1.csproj|c:\\users\\ngsno\\onedrive\\\u6587\u4EF6\\sa-project\\webapplication1\\models\\account.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F3F81273-4E4B-4829-81FA-87CB184552F8}|WebApplication1\\WebApplication1.csproj|solutionrelative:webapplication1\\models\\account.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F3F81273-4E4B-4829-81FA-87CB184552F8}|WebApplication1\\WebApplication1.csproj|c:\\users\\ngsno\\onedrive\\\u6587\u4EF6\\sa-project\\webapplication1\\migrations\\cmscontextmodelsnapshot.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F3F81273-4E4B-4829-81FA-87CB184552F8}|WebApplication1\\WebApplication1.csproj|solutionrelative:webapplication1\\migrations\\cmscontextmodelsnapshot.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F3F81273-4E4B-4829-81FA-87CB184552F8}|WebApplication1\\WebApplication1.csproj|c:\\users\\ngsno\\onedrive\\\u6587\u4EF6\\sa-project\\webapplication1\\migrations\\20241216182531_initialdb.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F3F81273-4E4B-4829-81FA-87CB184552F8}|WebApplication1\\WebApplication1.csproj|solutionrelative:webapplication1\\migrations\\20241216182531_initialdb.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F3F81273-4E4B-4829-81FA-87CB184552F8}|WebApplication1\\WebApplication1.csproj|c:\\users\\ngsno\\onedrive\\\u6587\u4EF6\\sa-project\\webapplication1\\migrations\\20241216182531_initialdb.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F3F81273-4E4B-4829-81FA-87CB184552F8}|WebApplication1\\WebApplication1.csproj|solutionrelative:webapplication1\\migrations\\20241216182531_initialdb.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F3F81273-4E4B-4829-81FA-87CB184552F8}|WebApplication1\\WebApplication1.csproj|c:\\users\\ngsno\\onedrive\\\u6587\u4EF6\\sa-project\\webapplication1\\data\\cmscontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{F3F81273-4E4B-4829-81FA-87CB184552F8}|WebApplication1\\WebApplication1.csproj|c:\\users\\asus\\desktop\\\u7CFB\u7D71\u5206\u6790\\webapplication1\\webapplication1\\data\\cmscontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{F3F81273-4E4B-4829-81FA-87CB184552F8}|WebApplication1\\WebApplication1.csproj|solutionrelative:webapplication1\\data\\cmscontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{F3F81273-4E4B-4829-81FA-87CB184552F8}|WebApplication1\\WebApplication1.csproj|c:\\users\\ngsno\\onedrive\\\u6587\u4EF6\\sa-project\\webapplication1\\controllers\\reservcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{F3F81273-4E4B-4829-81FA-87CB184552F8}|WebApplication1\\WebApplication1.csproj|c:\\users\\asus\\desktop\\\u7CFB\u7D71\u5206\u6790\\webapplication1\\webapplication1\\controllers\\reservcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{F3F81273-4E4B-4829-81FA-87CB184552F8}|WebApplication1\\WebApplication1.csproj|solutionrelative:webapplication1\\controllers\\reservcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{F3F81273-4E4B-4829-81FA-87CB184552F8}|WebApplication1\\WebApplication1.csproj|c:\\users\\ngsno\\onedrive\\\u6587\u4EF6\\sa-project\\webapplication1\\controllers\\mrecordcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{F3F81273-4E4B-4829-81FA-87CB184552F8}|WebApplication1\\WebApplication1.csproj|c:\\users\\asus\\desktop\\\u7CFB\u7D71\u5206\u6790\\webapplication1\\webapplication1\\controllers\\mrecordcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{F3F81273-4E4B-4829-81FA-87CB184552F8}|WebApplication1\\WebApplication1.csproj|solutionrelative:webapplication1\\controllers\\mrecordcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{F3F81273-4E4B-4829-81FA-87CB184552F8}|WebApplication1\\WebApplication1.csproj|c:\\users\\ngsno\\onedrive\\\u6587\u4EF6\\sa-project\\webapplication1\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{F3F81273-4E4B-4829-81FA-87CB184552F8}|WebApplication1\\WebApplication1.csproj|c:\\users\\asus\\desktop\\\u7CFB\u7D71\u5206\u6790\\webapplication1\\webapplication1\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{F3F81273-4E4B-4829-81FA-87CB184552F8}|WebApplication1\\WebApplication1.csproj|solutionrelative:webapplication1\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{F3F81273-4E4B-4829-81FA-87CB184552F8}|WebApplication1\\WebApplication1.csproj|c:\\users\\ngsno\\onedrive\\\u6587\u4EF6\\sa-project\\webapplication1\\views\\account\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "AbsoluteMoniker": "D:0:0:{F3F81273-4E4B-4829-81FA-87CB184552F8}|WebApplication1\\WebApplication1.csproj|c:\\users\\asus\\desktop\\\u7CFB\u7D71\u5206\u6790\\webapplication1\\webapplication1\\views\\account\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{F3F81273-4E4B-4829-81FA-87CB184552F8}|WebApplication1\\WebApplication1.csproj|solutionrelative:webapplication1\\views\\account\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{F3F81273-4E4B-4829-81FA-87CB184552F8}|WebApplication1\\WebApplication1.csproj|c:\\users\\ngsno\\onedrive\\\u6587\u4EF6\\sa-project\\webapplication1\\views\\account\\homepage.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "AbsoluteMoniker": "D:0:0:{F3F81273-4E4B-4829-81FA-87CB184552F8}|WebApplication1\\WebApplication1.csproj|c:\\users\\asus\\desktop\\\u7CFB\u7D71\u5206\u6790\\webapplication1\\webapplication1\\views\\account\\homepage.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{F3F81273-4E4B-4829-81FA-87CB184552F8}|WebApplication1\\WebApplication1.csproj|solutionrelative:webapplication1\\views\\account\\homepage.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{F3F81273-4E4B-4829-81FA-87CB184552F8}|WebApplication1\\WebApplication1.csproj|c:\\users\\ngsno\\onedrive\\\u6587\u4EF6\\sa-project\\webapplication1\\views\\mrecord\\mrecordlist.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "AbsoluteMoniker": "D:0:0:{F3F81273-4E4B-4829-81FA-87CB184552F8}|WebApplication1\\WebApplication1.csproj|c:\\users\\asus\\desktop\\\u7CFB\u7D71\u5206\u6790\\webapplication1\\webapplication1\\views\\mrecord\\mrecordlist.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{F3F81273-4E4B-4829-81FA-87CB184552F8}|WebApplication1\\WebApplication1.csproj|solutionrelative:webapplication1\\views\\mrecord\\mrecordlist.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{F3F81273-4E4B-4829-81FA-87CB184552F8}|WebApplication1\\WebApplication1.csproj|c:\\users\\ngsno\\onedrive\\\u6587\u4EF6\\sa-project\\webapplication1\\views\\reserv\\searchdepartment.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "AbsoluteMoniker": "D:0:0:{F3F81273-4E4B-4829-81FA-87CB184552F8}|WebApplication1\\WebApplication1.csproj|c:\\users\\asus\\desktop\\\u7CFB\u7D71\u5206\u6790\\webapplication1\\webapplication1\\views\\reserv\\searchdepartment.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{F3F81273-4E4B-4829-81FA-87CB184552F8}|WebApplication1\\WebApplication1.csproj|solutionrelative:webapplication1\\views\\reserv\\searchdepartment.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     }
   ],
@@ -102,214 +42,15 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 0,
           "Children": [
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
-            },
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": ".NETCoreApp,Version=v8.0.AssemblyAttributes.cs",
-              "DocumentMoniker": "C:\\Users\\ngsno\\OneDrive\\\u6587\u4EF6\\SA-project\\WebApplication1\\obj\\Debug\\net8.0\\.NETCoreApp,Version=v8.0.AssemblyAttributes.cs",
-              "RelativeDocumentMoniker": "WebApplication1\\obj\\Debug\\net8.0\\.NETCoreApp,Version=v8.0.AssemblyAttributes.cs",
-              "ToolTip": "C:\\Users\\ngsno\\OneDrive\\\u6587\u4EF6\\SA-project\\WebApplication1\\obj\\Debug\\net8.0\\.NETCoreApp,Version=v8.0.AssemblyAttributes.cs",
-              "RelativeToolTip": "WebApplication1\\obj\\Debug\\net8.0\\.NETCoreApp,Version=v8.0.AssemblyAttributes.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-27T18:07:35.712Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "msbuild.WebApplication1.Microsoft.AspNetCore.StaticWebAssets.props",
-              "DocumentMoniker": "C:\\Users\\ngsno\\OneDrive\\\u6587\u4EF6\\SA-project\\WebApplication1\\obj\\Debug\\net8.0\\staticwebassets\\msbuild.WebApplication1.Microsoft.AspNetCore.StaticWebAssets.props",
-              "RelativeDocumentMoniker": "WebApplication1\\obj\\Debug\\net8.0\\staticwebassets\\msbuild.WebApplication1.Microsoft.AspNetCore.StaticWebAssets.props",
-              "ToolTip": "C:\\Users\\ngsno\\OneDrive\\\u6587\u4EF6\\SA-project\\WebApplication1\\obj\\Debug\\net8.0\\staticwebassets\\msbuild.WebApplication1.Microsoft.AspNetCore.StaticWebAssets.props",
-              "RelativeToolTip": "WebApplication1\\obj\\Debug\\net8.0\\staticwebassets\\msbuild.WebApplication1.Microsoft.AspNetCore.StaticWebAssets.props",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003801|",
-              "WhenOpened": "2024-12-27T18:07:35.424Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "msbuild.buildTransitive.WebApplication1.props",
-              "DocumentMoniker": "C:\\Users\\ngsno\\OneDrive\\\u6587\u4EF6\\SA-project\\WebApplication1\\obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildTransitive.WebApplication1.props",
-              "RelativeDocumentMoniker": "WebApplication1\\obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildTransitive.WebApplication1.props",
-              "ToolTip": "C:\\Users\\ngsno\\OneDrive\\\u6587\u4EF6\\SA-project\\WebApplication1\\obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildTransitive.WebApplication1.props",
-              "RelativeToolTip": "WebApplication1\\obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildTransitive.WebApplication1.props",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003801|",
-              "WhenOpened": "2024-12-27T18:07:35.091Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "msbuild.buildMultiTargeting.WebApplication1.props",
-              "DocumentMoniker": "C:\\Users\\ngsno\\OneDrive\\\u6587\u4EF6\\SA-project\\WebApplication1\\obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildMultiTargeting.WebApplication1.props",
-              "RelativeDocumentMoniker": "WebApplication1\\obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildMultiTargeting.WebApplication1.props",
-              "ToolTip": "C:\\Users\\ngsno\\OneDrive\\\u6587\u4EF6\\SA-project\\WebApplication1\\obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildMultiTargeting.WebApplication1.props",
-              "RelativeToolTip": "WebApplication1\\obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildMultiTargeting.WebApplication1.props",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003801|",
-              "WhenOpened": "2024-12-27T18:07:34.56Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "msbuild.build.WebApplication1.props",
-              "DocumentMoniker": "C:\\Users\\ngsno\\OneDrive\\\u6587\u4EF6\\SA-project\\WebApplication1\\obj\\Debug\\net8.0\\staticwebassets\\msbuild.build.WebApplication1.props",
-              "RelativeDocumentMoniker": "WebApplication1\\obj\\Debug\\net8.0\\staticwebassets\\msbuild.build.WebApplication1.props",
-              "ToolTip": "C:\\Users\\ngsno\\OneDrive\\\u6587\u4EF6\\SA-project\\WebApplication1\\obj\\Debug\\net8.0\\staticwebassets\\msbuild.build.WebApplication1.props",
-              "RelativeToolTip": "WebApplication1\\obj\\Debug\\net8.0\\staticwebassets\\msbuild.build.WebApplication1.props",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003801|",
-              "WhenOpened": "2024-12-27T18:07:33.774Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "Reservation.cs",
-              "DocumentMoniker": "C:\\Users\\ngsno\\OneDrive\\\u6587\u4EF6\\SA-project\\WebApplication1\\Models\\Reservation.cs",
-              "RelativeDocumentMoniker": "WebApplication1\\Models\\Reservation.cs",
-              "ToolTip": "C:\\Users\\ngsno\\OneDrive\\\u6587\u4EF6\\SA-project\\WebApplication1\\Models\\Reservation.cs",
-              "RelativeToolTip": "WebApplication1\\Models\\Reservation.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-27T18:07:32.762Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "Patient.cs",
-              "DocumentMoniker": "C:\\Users\\ngsno\\OneDrive\\\u6587\u4EF6\\SA-project\\WebApplication1\\Models\\Patient.cs",
-              "RelativeDocumentMoniker": "WebApplication1\\Models\\Patient.cs",
-              "ToolTip": "C:\\Users\\ngsno\\OneDrive\\\u6587\u4EF6\\SA-project\\WebApplication1\\Models\\Patient.cs",
-              "RelativeToolTip": "WebApplication1\\Models\\Patient.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-27T18:07:32.394Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "MRecord.cs",
-              "DocumentMoniker": "C:\\Users\\ngsno\\OneDrive\\\u6587\u4EF6\\SA-project\\WebApplication1\\Models\\MRecord.cs",
-              "RelativeDocumentMoniker": "WebApplication1\\Models\\MRecord.cs",
-              "ToolTip": "C:\\Users\\ngsno\\OneDrive\\\u6587\u4EF6\\SA-project\\WebApplication1\\Models\\MRecord.cs",
-              "RelativeToolTip": "WebApplication1\\Models\\MRecord.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-27T18:07:32.061Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "Hospital.cs",
-              "DocumentMoniker": "C:\\Users\\ngsno\\OneDrive\\\u6587\u4EF6\\SA-project\\WebApplication1\\Models\\Hospital.cs",
-              "RelativeDocumentMoniker": "WebApplication1\\Models\\Hospital.cs",
-              "ToolTip": "C:\\Users\\ngsno\\OneDrive\\\u6587\u4EF6\\SA-project\\WebApplication1\\Models\\Hospital.cs",
-              "RelativeToolTip": "WebApplication1\\Models\\Hospital.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-27T18:07:31.723Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "ErrorViewModel.cs",
-              "DocumentMoniker": "C:\\Users\\ngsno\\OneDrive\\\u6587\u4EF6\\SA-project\\WebApplication1\\Models\\ErrorViewModel.cs",
-              "RelativeDocumentMoniker": "WebApplication1\\Models\\ErrorViewModel.cs",
-              "ToolTip": "C:\\Users\\ngsno\\OneDrive\\\u6587\u4EF6\\SA-project\\WebApplication1\\Models\\ErrorViewModel.cs",
-              "RelativeToolTip": "WebApplication1\\Models\\ErrorViewModel.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-27T18:07:31.204Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "Doctor.cs",
-              "DocumentMoniker": "C:\\Users\\ngsno\\OneDrive\\\u6587\u4EF6\\SA-project\\WebApplication1\\Models\\Doctor.cs",
-              "RelativeDocumentMoniker": "WebApplication1\\Models\\Doctor.cs",
-              "ToolTip": "C:\\Users\\ngsno\\OneDrive\\\u6587\u4EF6\\SA-project\\WebApplication1\\Models\\Doctor.cs",
-              "RelativeToolTip": "WebApplication1\\Models\\Doctor.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-27T18:07:30.861Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 11,
-              "Title": "Account.cs",
-              "DocumentMoniker": "C:\\Users\\ngsno\\OneDrive\\\u6587\u4EF6\\SA-project\\WebApplication1\\Models\\Account.cs",
-              "RelativeDocumentMoniker": "WebApplication1\\Models\\Account.cs",
-              "ToolTip": "C:\\Users\\ngsno\\OneDrive\\\u6587\u4EF6\\SA-project\\WebApplication1\\Models\\Account.cs",
-              "RelativeToolTip": "WebApplication1\\Models\\Account.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-27T18:07:30.441Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 12,
-              "Title": "CmsContextModelSnapshot.cs",
-              "DocumentMoniker": "C:\\Users\\ngsno\\OneDrive\\\u6587\u4EF6\\SA-project\\WebApplication1\\Migrations\\CmsContextModelSnapshot.cs",
-              "RelativeDocumentMoniker": "WebApplication1\\Migrations\\CmsContextModelSnapshot.cs",
-              "ToolTip": "C:\\Users\\ngsno\\OneDrive\\\u6587\u4EF6\\SA-project\\WebApplication1\\Migrations\\CmsContextModelSnapshot.cs",
-              "RelativeToolTip": "WebApplication1\\Migrations\\CmsContextModelSnapshot.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-27T18:07:30.091Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 13,
-              "Title": "20241216182531_InitialDB.Designer.cs",
-              "DocumentMoniker": "C:\\Users\\ngsno\\OneDrive\\\u6587\u4EF6\\SA-project\\WebApplication1\\Migrations\\20241216182531_InitialDB.Designer.cs",
-              "RelativeDocumentMoniker": "WebApplication1\\Migrations\\20241216182531_InitialDB.Designer.cs",
-              "ToolTip": "C:\\Users\\ngsno\\OneDrive\\\u6587\u4EF6\\SA-project\\WebApplication1\\Migrations\\20241216182531_InitialDB.Designer.cs",
-              "RelativeToolTip": "WebApplication1\\Migrations\\20241216182531_InitialDB.Designer.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-27T18:07:29.717Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 14,
-              "Title": "20241216182531_InitialDB.cs",
-              "DocumentMoniker": "C:\\Users\\ngsno\\OneDrive\\\u6587\u4EF6\\SA-project\\WebApplication1\\Migrations\\20241216182531_InitialDB.cs",
-              "RelativeDocumentMoniker": "WebApplication1\\Migrations\\20241216182531_InitialDB.cs",
-              "ToolTip": "C:\\Users\\ngsno\\OneDrive\\\u6587\u4EF6\\SA-project\\WebApplication1\\Migrations\\20241216182531_InitialDB.cs",
-              "RelativeToolTip": "WebApplication1\\Migrations\\20241216182531_InitialDB.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-27T18:07:29.298Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 15,
               "Title": "CmsContext.cs",
-              "DocumentMoniker": "C:\\Users\\ngsno\\OneDrive\\\u6587\u4EF6\\SA-project\\WebApplication1\\Data\\CmsContext.cs",
+              "DocumentMoniker": "C:\\Users\\ASUS\\Desktop\\\u7CFB\u7D71\u5206\u6790\\WebApplication1\\WebApplication1\\Data\\CmsContext.cs",
               "RelativeDocumentMoniker": "WebApplication1\\Data\\CmsContext.cs",
-              "ToolTip": "C:\\Users\\ngsno\\OneDrive\\\u6587\u4EF6\\SA-project\\WebApplication1\\Data\\CmsContext.cs",
+              "ToolTip": "C:\\Users\\ASUS\\Desktop\\\u7CFB\u7D71\u5206\u6790\\WebApplication1\\WebApplication1\\Data\\CmsContext.cs",
               "RelativeToolTip": "WebApplication1\\Data\\CmsContext.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -318,63 +59,59 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 19,
+              "DocumentIndex": 4,
               "Title": "Login.cshtml",
-              "DocumentMoniker": "C:\\Users\\ngsno\\OneDrive\\\u6587\u4EF6\\SA-project\\WebApplication1\\Views\\Account\\Login.cshtml",
+              "DocumentMoniker": "C:\\Users\\ASUS\\Desktop\\\u7CFB\u7D71\u5206\u6790\\WebApplication1\\WebApplication1\\Views\\Account\\Login.cshtml",
               "RelativeDocumentMoniker": "WebApplication1\\Views\\Account\\Login.cshtml",
-              "ToolTip": "C:\\Users\\ngsno\\OneDrive\\\u6587\u4EF6\\SA-project\\WebApplication1\\Views\\Account\\Login.cshtml",
+              "ToolTip": "C:\\Users\\ASUS\\Desktop\\\u7CFB\u7D71\u5206\u6790\\WebApplication1\\WebApplication1\\Views\\Account\\Login.cshtml",
               "RelativeToolTip": "WebApplication1\\Views\\Account\\Login.cshtml",
               "ViewState": "AQIAAAMAAAAAAAAAAAAAAA0AAAALAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-12-27T18:01:33.543Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-12-27T18:01:33.543Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 20,
+              "DocumentIndex": 5,
               "Title": "Homepage.cshtml",
-              "DocumentMoniker": "C:\\Users\\ngsno\\OneDrive\\\u6587\u4EF6\\SA-project\\WebApplication1\\Views\\Account\\Homepage.cshtml",
+              "DocumentMoniker": "C:\\Users\\ASUS\\Desktop\\\u7CFB\u7D71\u5206\u6790\\WebApplication1\\WebApplication1\\Views\\Account\\Homepage.cshtml",
               "RelativeDocumentMoniker": "WebApplication1\\Views\\Account\\Homepage.cshtml",
-              "ToolTip": "C:\\Users\\ngsno\\OneDrive\\\u6587\u4EF6\\SA-project\\WebApplication1\\Views\\Account\\Homepage.cshtml",
+              "ToolTip": "C:\\Users\\ASUS\\Desktop\\\u7CFB\u7D71\u5206\u6790\\WebApplication1\\WebApplication1\\Views\\Account\\Homepage.cshtml",
               "RelativeToolTip": "WebApplication1\\Views\\Account\\Homepage.cshtml",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAACAAAAAOAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-12-27T18:01:20.921Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-12-27T18:01:20.921Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 18,
+              "DocumentIndex": 3,
               "Title": "AccountController.cs",
-              "DocumentMoniker": "C:\\Users\\ngsno\\OneDrive\\\u6587\u4EF6\\SA-project\\WebApplication1\\Controllers\\AccountController.cs",
+              "DocumentMoniker": "C:\\Users\\ASUS\\Desktop\\\u7CFB\u7D71\u5206\u6790\\WebApplication1\\WebApplication1\\Controllers\\AccountController.cs",
               "RelativeDocumentMoniker": "WebApplication1\\Controllers\\AccountController.cs",
-              "ToolTip": "C:\\Users\\ngsno\\OneDrive\\\u6587\u4EF6\\SA-project\\WebApplication1\\Controllers\\AccountController.cs",
+              "ToolTip": "C:\\Users\\ASUS\\Desktop\\\u7CFB\u7D71\u5206\u6790\\WebApplication1\\WebApplication1\\Controllers\\AccountController.cs",
               "RelativeToolTip": "WebApplication1\\Controllers\\AccountController.cs",
               "ViewState": "AQIAABsAAAAAAAAAAAAYwDMAAAAJAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-26T07:38:00.362Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-12-26T07:38:00.362Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 17,
+              "DocumentIndex": 2,
               "Title": "MRecordController.cs",
-              "DocumentMoniker": "C:\\Users\\ngsno\\OneDrive\\\u6587\u4EF6\\SA-project\\WebApplication1\\Controllers\\MRecordController.cs",
+              "DocumentMoniker": "C:\\Users\\ASUS\\Desktop\\\u7CFB\u7D71\u5206\u6790\\WebApplication1\\WebApplication1\\Controllers\\MRecordController.cs",
               "RelativeDocumentMoniker": "WebApplication1\\Controllers\\MRecordController.cs",
-              "ToolTip": "C:\\Users\\ngsno\\OneDrive\\\u6587\u4EF6\\SA-project\\WebApplication1\\Controllers\\MRecordController.cs",
+              "ToolTip": "C:\\Users\\ASUS\\Desktop\\\u7CFB\u7D71\u5206\u6790\\WebApplication1\\WebApplication1\\Controllers\\MRecordController.cs",
               "RelativeToolTip": "WebApplication1\\Controllers\\MRecordController.cs",
               "ViewState": "AQIAAHAAAAAAAAAAAAAowHwAAAAoAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-25T17:57:31.164Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-12-25T17:57:31.164Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 21,
+              "DocumentIndex": 6,
               "Title": "MRecordList.cshtml",
-              "DocumentMoniker": "C:\\Users\\ngsno\\OneDrive\\\u6587\u4EF6\\SA-project\\WebApplication1\\Views\\MRecord\\MRecordList.cshtml",
+              "DocumentMoniker": "C:\\Users\\ASUS\\Desktop\\\u7CFB\u7D71\u5206\u6790\\WebApplication1\\WebApplication1\\Views\\MRecord\\MRecordList.cshtml",
               "RelativeDocumentMoniker": "WebApplication1\\Views\\MRecord\\MRecordList.cshtml",
-              "ToolTip": "C:\\Users\\ngsno\\OneDrive\\\u6587\u4EF6\\SA-project\\WebApplication1\\Views\\MRecord\\MRecordList.cshtml",
+              "ToolTip": "C:\\Users\\ASUS\\Desktop\\\u7CFB\u7D71\u5206\u6790\\WebApplication1\\WebApplication1\\Views\\MRecord\\MRecordList.cshtml",
               "RelativeToolTip": "WebApplication1\\Views\\MRecord\\MRecordList.cshtml",
               "ViewState": "AQIAAFoAAAAAAAAAAAAAAGoAAAAIAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
@@ -382,24 +119,23 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 16,
+              "DocumentIndex": 1,
               "Title": "ReservController.cs",
-              "DocumentMoniker": "C:\\Users\\ngsno\\OneDrive\\\u6587\u4EF6\\SA-project\\WebApplication1\\Controllers\\ReservController.cs",
+              "DocumentMoniker": "C:\\Users\\ASUS\\Desktop\\\u7CFB\u7D71\u5206\u6790\\WebApplication1\\WebApplication1\\Controllers\\ReservController.cs",
               "RelativeDocumentMoniker": "WebApplication1\\Controllers\\ReservController.cs",
-              "ToolTip": "C:\\Users\\ngsno\\OneDrive\\\u6587\u4EF6\\SA-project\\WebApplication1\\Controllers\\ReservController.cs",
+              "ToolTip": "C:\\Users\\ASUS\\Desktop\\\u7CFB\u7D71\u5206\u6790\\WebApplication1\\WebApplication1\\Controllers\\ReservController.cs",
               "RelativeToolTip": "WebApplication1\\Controllers\\ReservController.cs",
               "ViewState": "AQIAABcAAAAAAAAAAAAgwCkAAAAJAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-23T06:22:08.383Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-12-23T06:22:08.383Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 22,
+              "DocumentIndex": 7,
               "Title": "searchDepartment.cshtml",
-              "DocumentMoniker": "C:\\Users\\ngsno\\OneDrive\\\u6587\u4EF6\\SA-project\\WebApplication1\\Views\\Reserv\\searchDepartment.cshtml",
+              "DocumentMoniker": "C:\\Users\\ASUS\\Desktop\\\u7CFB\u7D71\u5206\u6790\\WebApplication1\\WebApplication1\\Views\\Reserv\\searchDepartment.cshtml",
               "RelativeDocumentMoniker": "WebApplication1\\Views\\Reserv\\searchDepartment.cshtml",
-              "ToolTip": "C:\\Users\\ngsno\\OneDrive\\\u6587\u4EF6\\SA-project\\WebApplication1\\Views\\Reserv\\searchDepartment.cshtml",
+              "ToolTip": "C:\\Users\\ASUS\\Desktop\\\u7CFB\u7D71\u5206\u6790\\WebApplication1\\WebApplication1\\Views\\Reserv\\searchDepartment.cshtml",
               "RelativeToolTip": "WebApplication1\\Views\\Reserv\\searchDepartment.cshtml",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAASAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
