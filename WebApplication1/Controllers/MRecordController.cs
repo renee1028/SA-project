@@ -117,12 +117,14 @@ namespace WebApplication1.Controllers
                 return RedirectToAction("Login", "Account");
             }
             var accountid = HttpContext.Session.GetString("Account_id");
-            string patientid= $@"SELECT Ptaient_id 
-                                FROM Patient_H
-                                Where Account_id = '{accountid}' ";
+            // 使用 EF Core 查詢 Patient_id
+            var patientid = await _context.PATIENT_H
+                                          .Where(p => p.Account_id == accountid)
+                                          .Select(p => p.Patient_id)
+                                          .FirstOrDefaultAsync();
 
             var mRecordsQuery = _context.MEDICAL_RECORD_H
-             .Where((p => p.Patient_id == patientid))
+            .Where((p => p.Patient_id == patientid))
             .Join(
                 _context.DOCTOR_H,                          // 從 DOCTOR_H 表中查詢
                 medicalRecord => medicalRecord.Doctor_id,   // MEDICAL_RECORD_H 的 Doctor_id

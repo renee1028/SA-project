@@ -1146,3 +1146,4 @@ C:\Users\ASUS\Desktop\系統分析\WebApplication1\WebApplication1\obj\Debug\net
 C:\Users\ASUS\Desktop\系統分析\WebApplication1\WebApplication1\obj\Debug\net8.0\WebApplication1.pdb
 C:\Users\ASUS\Desktop\系統分析\WebApplication1\WebApplication1\obj\Debug\net8.0\WebApplication1.genruntimeconfig.cache
 C:\Users\ASUS\Desktop\系統分析\WebApplication1\WebApplication1\obj\Debug\net8.0\ref\WebApplication1.dll
+C:\Users\ASUS\Desktop\系統分析\WebApplication1\WebApplication1\obj\Debug\net8.0\WebApplication1.sourcelink.json
