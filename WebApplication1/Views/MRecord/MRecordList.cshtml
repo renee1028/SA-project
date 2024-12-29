@@ -7,45 +7,29 @@
 <script>
     function filterBySpecialization() {
         var specialization = document.getElementById("doctorSpecialization").value;
-        if (specialization) {
-            // 發送AJAX請求，獲取該科別有病歷記錄的所有醫師
-            fetch('@Url.Action("GetDoctorsBySpecialization", "MRecord")' + '?specialization=' + specialization)
-                .then(response => response.json())
-                .then(data => {
-                    if (data.doctors) {  // 確保資料有返回
-                        var doctorNameSelect = document.getElementById("doctorName");
-                        doctorNameSelect.innerHTML = '<option value="">選擇醫生</option>'; // 清空醫生選項
 
-                        // 填充新的醫生選項
-                        data.doctors.forEach(function (doctor) {
-                            var option = document.createElement("option");
-                            option.value = doctor;
-                            option.textContent = doctor;
-                            doctorNameSelect.appendChild(option);
-                        });
-                    } else {
-                        console.error("返回的資料格式不正確！");
-                    }
-                })
-                .catch(error => {
-                    console.error("Error fetching doctors:", error);// 可以顯示一個錯誤提示或警告給用戶
-                });
-        }else{
-            // 如果沒有選擇科別，顯示所有醫生
-            var doctorNameSelect = document.getElementById("doctorName");
-            doctorNameSelect.innerHTML = '<option value="">選擇醫生</option>'; // 清空醫生選項
+        // 發送AJAX請求，獲取該科別有病歷記錄的所有醫師
+        fetch('@Url.Action("GetDoctorsBySpecialization", "MRecord")' + '?specialization=' + specialization)
+            .then(response => response.json())
+            .then(data => {
+                if (data.doctors) {  // 確保資料有返回
+                    var doctorNameSelect = document.getElementById("doctorName");
+                    doctorNameSelect.innerHTML = '<option value="">選擇醫生</option>'; // 清空醫生選項
 
-            // 將所有醫生選項重新加回來
-            var doctorNames = @Html.Raw(Json.Serialize(doctorNames)); // 把所有醫生名稱傳到前端
-            doctorNames.forEach(function (doctor) {
-                var option = document.createElement("option");
-                option.value = doctor;
-                option.textContent = doctor;
-                doctorNameSelect.appendChild(option);
+                    // 填充新的醫生選項
+                    data.doctors.forEach(function (doctor) {
+                        var option = document.createElement("option");
+                        option.value = doctor;
+                        option.textContent = doctor;
+                        doctorNameSelect.appendChild(option);
+                    });
+                } else {
+                    console.error("返回的資料格式不正確！");
+                }
+            })
+            .catch(error => {
+                console.error("Error fetching doctors:", error);// 可以顯示一個錯誤提示或警告給用戶
             });
-        }
-        
-
     }
     function submitSearch() {
         var specialization = document.getElementById("doctorSpecialization").value;
@@ -62,7 +46,6 @@
 <p style="font-size: 25px;"><img src="~/images/mrecord.png" width="30px" class="d-inline-block align-text-top" alt="病歷資料">查詢病歷</p>
 <hr />
 
-<div style="color: red;"><b>查詢條件:</b>若選取科別則會顯示該科別的醫生名字，否則顯示所有醫生</div>
 <div style="display: flex; align-items: center; gap: 20px; flex-wrap: wrap;">
     <div style="display: flex; align-items: center;">
         <label for="doctorSpecialization" style="margin-right: 10px; white-space: nowrap;">科別：</label>
@@ -79,10 +62,6 @@
         <label for="doctorName" style="margin-right: 10px; white-space: nowrap;">醫生名稱：</label>
         <select id="doctorName" class="form-control">
             <option value="">選擇醫生</option>
-            @foreach (var name in doctorNames)
-            {
-                <option value="@name">@name</option>
-            }
         </select>
     </div>
 
@@ -118,7 +97,7 @@
                 <td>@record.MRecord_treatmentplan</td>
                 <td>
                     <form method="get" asp-action="Details" asp-route-id="@record.MRecord_id">
-                        <button type="submit" class="btn btn-info btn-sm d-block d-sm-inline" style="background-color:lightblue">查看詳情</button>
+                        <button type="submit" class="btn btn-primary">查看詳情</button>
                     </form>
                 </td>
             </tr>

@@ -1,22 +1,21 @@
 ﻿@{
     ViewData["Title"] = "searchPage";
 }
-<div class="col-lg-9 main-content">
-    <p style="font-size: 25px;"><img src="~/images/search.png" width="30px" class="d-inline-block align-text-top" alt="查詢功能">查詢</p>
-    <hr />
 
-    <div style="display: flex; justify-content: center; align-items: flex-start; gap: 150px;">
-        <div style="text-align: center;">
-            <a class="nav-link text-dark" asp-area="" asp-controller="MRecord" asp-action="MRecordList">
-                <img src="/images/searchMr.png" width="150" class="d-inline-block align-text-top" alt="病歷查詢" style="border-radius: 10px;">
-            </a>
-            <p style="margin-top: 10px; background-color: #D6E4F0; padding: 5px 10px; border-radius: 10px; display: inline-block; width: 150px; text-align: center;">病歷</p>
-        </div>
-        <div style="text-align: center;">
-            <a class="nav-link text-dark" asp-area="" asp-controller="MRecord" asp-action="Consultation">
-                <img src="/images/searchR.png" width="150" class="d-inline-block align-text-top" alt="看診記錄" style="border-radius: 10px;">
-            </a>
-            <p style="margin-top: 10px; background-color: #D6E4F0; padding: 5px 10px; border-radius: 10px; display: inline-block; width: 150px; text-align: center;">看診記錄</p>
-        </div>
+<p style="font-size: 25px;"><img src="~/images/search.png" width="30px" class="d-inline-block align-text-top" alt="查詢功能">查詢</p>
+<hr />
+
+<div style="display: flex; justify-content: center; align-items: flex-start; gap: 150px;">
+    <div style="text-align: center;">
+        <a class="nav-link text-dark" asp-area="" asp-controller="MRecord" asp-action="MRecordList">
+            <img src="/images/searchMr.png" width="150" class="d-inline-block align-text-top" alt="病歷查詢" style="border-radius: 10px;">
+        </a>
+        <p style="margin-top: 10px; background-color: #D6E4F0; padding: 5px 10px; border-radius: 10px; display: inline-block; width: 150px; text-align: center;">病歷</p>
     </div>
- </div>
+    <div style="text-align: center;">
+        <a class="nav-link text-dark" asp-area="" asp-controller="MRecord" asp-action="Consultation">
+            <img src="/images/searchR.png" width="150" class="d-inline-block align-text-top" alt="看診記錄" style="border-radius: 10px;">
+        </a>
+        <p style="margin-top: 10px; background-color: #D6E4F0; padding: 5px 10px; border-radius: 10px; display: inline-block; width: 150px; text-align: center;">看診記錄</p>
+    </div>
+</div>

@@ -4,23 +4,23 @@
     ViewData["Title"] = "Details";
 }
 
-<h2>病歷詳情</h2>
+<h1>病歷詳情</h1>
 
 <div>
     <h4>MRecord</h4>
     <hr />
     <dl class="row">
         <dt class = "col-sm-2">
-            患者姓名
+            @Html.DisplayNameFor(model => model.Patient_id)
         </dt>
         <dd class = "col-sm-10">
-            @ViewData["PatientName"]
+            @Html.DisplayFor(model => model.Patient_id)
         </dd>
         <dt class = "col-sm-2">
-            醫生姓名
+            @Html.DisplayNameFor(model => model.Doctor_id)
         </dt>
         <dd class = "col-sm-10">
-            @ViewData["DoctorName"] 醫師
+            @Html.DisplayFor(model => model.Doctor_id)
         </dd>
         <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.MRecord_diagnosis)
@@ -49,5 +49,5 @@
     </dl>
 </div>
 <div>
-    <button class="btn btn-primary" onclick="history.back()">回上一頁</button>
+    <a asp-controller="MRecord" asp-action="MRecordList">返回病歷清單</a>
 </div>
