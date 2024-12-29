@@ -1,0 +1,28 @@
+﻿@model IEnumerable<dynamic>
+@{
+    ViewData["Title"] = "confirmReserv";
+    var patient = ViewData["Patient"] as List<string>;
+    var confirm = ViewData["Confirm"] as List<string>;
+}
+
+<p class="page-title"><img src="~/images/reserv.png" width="30px" alt="確認預約"> 確認預約</p>
+<hr>
+
+<h3 style="text-align: center; background-color: #A4C2C7; padding: 10px; margin: 0; font-size: 1.25rem; border-radius: 5px; border: 1px solid #ddd; color: #000000;">醫院</h3>
+<br />
+<h3 style="text-align: center; background-color: #E2EDF6; padding: 10px; margin: 0; font-size: 1.25rem; border-radius: 5px; border: 1px solid #ddd; color: #000000;">
+    <div>
+        @foreach (var record in Model)
+        {
+            <p>@(record.Reserv_time)門診 @(record.Doctor_name)</p>
+        }
+        <p>患者資訊</p>
+        <p>姓名：@patient</p>
+        <p>身份證字號：</p>
+         <p>電話號碼：</p>
+    </div>
+</h3>
+<br />
+<a class="nav-link text-dark" asp-area="" asp-controller="Reserv" asp-action="searchDepartment">
+    <button type="submit" class="btn btn-info btn-sm d-block d-sm-inline" style="background-color:#65A7B2;border-radius: 10px; color: #FFFFFF">掛號</button>
+</a>

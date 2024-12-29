@@ -37,7 +37,7 @@
                     {
                         <br />
                         <p>@morning.First(m => m.Reserv_time.DayOfWeek == (DayOfWeek)i).Doctor_name 醫師</p>
-                        <a class="nav-link text-dark" asp-area="" asp-controller="Reserv" asp-action="searchDepartment">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Reserv" asp-action="confirmReserv" asp-route-reserv="@morning.First(m => m.Reserv_time.DayOfWeek == (DayOfWeek)i).Reserv_id">
                             <button type="submit" class="btn btn-info btn-sm d-block d-sm-inline" style="background-color:#65A7B2;border-radius: 10px;">預約</button>
                         </a>
                         <br />
@@ -63,7 +63,7 @@
                         {
                             <br />
                             <p>@afternoon.First(m => m.Reserv_time.DayOfWeek == (DayOfWeek)i).Doctor_name 醫師</p>
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Reserv" asp-action="searchDepartment">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Reserv" asp-action="confirmReserv">
                                 <button type="submit" class="btn btn-info btn-sm d-block d-sm-inline" style="background-color:#65A7B2;border-radius: 10px;">預約</button>
                             </a>
                             <br />
@@ -89,7 +89,7 @@
                         {
                             <br />
                             <p>@night.First(m => m.Reserv_time.DayOfWeek == (DayOfWeek)i).Doctor_name 醫師</p>
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Reserv" asp-action="searchDepartment">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Reserv" asp-action="confirmReserv">
                                 <button type="submit" class="btn btn-info btn-sm d-block d-sm-inline" style="background-color:#65A7B2;border-radius: 10px;">預約</button>
                             </a>
                             <br />

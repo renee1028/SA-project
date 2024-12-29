@@ -72,5 +72,39 @@ namespace WebApplication1.Controllers
 
             return View(reserv);
         }
+
+        [HttpGet]
+        public async Task<IActionResult> confirmReserv(string reserv)
+        {
+            var confirm = await _context.RESERVATION_H
+                        .Join(
+                            _context.DOCTOR_H,
+                            reserv => reserv.Doctor_id,
+                            doctor => doctor.Doctor_id,
+                            (reserv, doctor) => new
+                            {
+                                reserv.Reserv_id,
+                                doctor.Doctor_id,
+                                reserv.Reserv_time,
+                                reserv.Reserv_stat,
+                                doctor.Doctor_name,
+                                doctor.Doctor_specialization,
+                                doctor.Hospital_id
+                            }
+                        )
+                        .Where(result => result.Reserv_id == reserv)
+                        .ToListAsync();
+            ViewData["Confirm"] = confirm;
+            
+            var accountid = HttpContext.Session.GetString("Account_id");
+
+            var patientid = await _context.PATIENT_H
+                                          .Where(p => p.Account_id == accountid)
+                                          .FirstOrDefaultAsync();
+            ViewData["Patient"] = patientid;
+
+            return View(confirm);
+        }
+
     }
 }
