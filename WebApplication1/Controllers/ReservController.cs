@@ -1,7 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 using WebApplication1.Data;
-using WebApplication1.Models;
 
 namespace WebApplication1.Controllers
 {
@@ -27,21 +25,20 @@ namespace WebApplication1.Controllers
             return View(searchH);
         }
 
-        public async Task<IActionResult> searchDepartment(string hospital)
+        public IActionResult searchDepartment()
         {
-            if (HttpContext.Session.GetString("Account_name") == null)
+            /*if (HttpContext.Session.GetString("Account_name") == null)
             {
                 TempData["message"] = "請登入!";
                 return RedirectToAction("Login", "Account");
-            }
+            }*/
 
-            var searchDpm = await _context.DOCTOR_H
-                            .Where(result => result.Hospital_id == hospital)
-                            .GroupBy(result => result.Doctor_specialization)
-                            .Select(group => group.Key)
-                            .ToListAsync();
-            ViewBag.Hospital = hospital;
+            var searchDpm = _context.DOCTOR_H
+                .GroupBy(result => result.Doctor_specialization)
+                .Select(group => group.Key)
+                .ToList();
             ViewData["Department"] = searchDpm;
+<<<<<<< HEAD
             return View();
         }
         public async Task<IActionResult> reservTable(string department, string hospital)
@@ -69,6 +66,9 @@ namespace WebApplication1.Controllers
             ViewData["Department"] = department;
             ViewData["Reservations"] = reservations;
             return View();
+=======
+            return View(searchDpm);
+>>>>>>> origin/master
         }
     }
 }
