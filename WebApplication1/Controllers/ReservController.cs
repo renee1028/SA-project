@@ -1,5 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Identity.Client;
 using WebApplication1.Data;
+using WebApplication1.Models;
 
 namespace WebApplication1.Controllers
 {
@@ -16,16 +19,16 @@ namespace WebApplication1.Controllers
         }
         public IActionResult searchHospital()
         {
-            if (HttpContext.Session.GetString("Account_name") == null)
+            /*if (HttpContext.Session.GetString("Account_name") == null)
             {
                 TempData["message"] = "請登入!";
                 return RedirectToAction("Login", "Account");
-            }
+            }*/
             var searchH = _context.HOSPITAL_H.ToList();
             return View(searchH);
         }
 
-        public IActionResult searchDepartment()
+        public async Task<IActionResult> searchDepartment(string hospital)
         {
             /*if (HttpContext.Session.GetString("Account_name") == null)
             {
@@ -33,42 +36,39 @@ namespace WebApplication1.Controllers
                 return RedirectToAction("Login", "Account");
             }*/
 
-            var searchDpm = _context.DOCTOR_H
-                .GroupBy(result => result.Doctor_specialization)
-                .Select(group => group.Key)
-                .ToList();
+            var searchDpm = await _context.DOCTOR_H
+                            .Where(result => result.Hospital_id == hospital)
+                            .GroupBy(result => result.Doctor_specialization)
+                            .Select(group => group.Key)
+                            .ToListAsync();
+            ViewBag.Hospital = hospital;
             ViewData["Department"] = searchDpm;
-<<<<<<< HEAD
             return View();
         }
+        [HttpGet]
         public async Task<IActionResult> reservTable(string department, string hospital)
         {
-            var reservations = await _context.RESERVATION_H
-            .Join(
-                _context.DOCTOR_H,
-                reserv => reserv.Doctor_id,   // 使用病歷表中的 Doctor_id
-                doctor => doctor.Doctor_id,                  // 使用醫師表中的 Doctor_id
-                (reserv, doctor) => new
-                {
-                    reserv.Reserv_id,
-                    reserv.Patient_id,
-                    doctor.Doctor_id,
-                    reserv.Reserv_time,
-                    reserv.Reserv_stat,
-                    doctor.Doctor_name,
-                    doctor.Doctor_specialization,
-                    doctor.Hospital_id
-                }
-            )
-            .OrderBy(x => x.Reserv_time)
-            .ToListAsync();
-            
-            ViewData["Department"] = department;
-            ViewData["Reservations"] = reservations;
-            return View();
-=======
-            return View(searchDpm);
->>>>>>> origin/master
+            var reserv = await _context.RESERVATION_H
+                        .Join(
+                            _context.DOCTOR_H,
+                            reserv => reserv.Doctor_id,
+                            doctor => doctor.Doctor_id,
+                            (reserv, doctor) => new
+                            {
+                                reserv.Reserv_id,
+                                reserv.Patient_id,
+                                doctor.Doctor_id,
+                                reserv.Reserv_time,
+                                reserv.Reserv_stat,
+                                doctor.Doctor_name,
+                                doctor.Doctor_specialization
+                            }
+                        )
+                        .ToListAsync();
+
+            /*ViewData["Department"] = department;
+            ViewData["Reservations"] = reserv;*/
+            return View(reserv);
         }
     }
 }

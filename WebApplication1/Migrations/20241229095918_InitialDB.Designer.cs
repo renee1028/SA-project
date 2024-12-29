@@ -12,7 +12,7 @@ using WebApplication1.Data;
 namespace WebApplication1.Migrations
 {
     [DbContext(typeof(CmsContext))]
-    [Migration("20241216182531_InitialDB")]
+    [Migration("20241229095918_InitialDB")]
     partial class InitialDB
     {
         /// <inheritdoc />
@@ -49,11 +49,8 @@ namespace WebApplication1.Migrations
 
             modelBuilder.Entity("WebApplication1.Models.Doctor", b =>
                 {
-                    b.Property<int>("Doctor_id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Doctor_id"));
+                    b.Property<string>("Doctor_id")
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("Account_id")
                         .IsRequired()
@@ -75,8 +72,9 @@ namespace WebApplication1.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("Hospital_id")
-                        .HasColumnType("int");
+                    b.Property<string>("Hospital_id")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Doctor_id");
 
@@ -85,11 +83,8 @@ namespace WebApplication1.Migrations
 
             modelBuilder.Entity("WebApplication1.Models.Hospital", b =>
                 {
-                    b.Property<int>("Hospital_id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Hospital_id"));
+                    b.Property<string>("Hospital_id")
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("Hospital_address")
                         .IsRequired()
@@ -110,14 +105,12 @@ namespace WebApplication1.Migrations
 
             modelBuilder.Entity("WebApplication1.Models.MRecord", b =>
                 {
-                    b.Property<int>("MRecord_id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
+                    b.Property<string>("MRecord_id")
+                        .HasColumnType("nvarchar(450)");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("MRecord_id"));
-
-                    b.Property<int>("Doctor_id")
-                        .HasColumnType("int");
+                    b.Property<string>("Doctor_id")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<DateOnly>("MRecord_date")
                         .HasColumnType("date");
@@ -170,8 +163,9 @@ namespace WebApplication1.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("Patient_nhicard")
-                        .HasColumnType("int");
+                    b.Property<string>("Patient_nhicard")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Patient_nidcard")
                         .IsRequired()
@@ -188,17 +182,14 @@ namespace WebApplication1.Migrations
 
             modelBuilder.Entity("WebApplication1.Models.Reservation", b =>
                 {
-                    b.Property<int>("Reserv_id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
+                    b.Property<string>("Reserv_id")
+                        .HasColumnType("nvarchar(450)");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Reserv_id"));
-
-                    b.Property<int>("Doctor_id")
-                        .HasColumnType("int");
+                    b.Property<string>("Doctor_id")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Patient_id")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Reserv_stat")

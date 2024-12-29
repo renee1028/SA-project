@@ -29,10 +29,9 @@ namespace WebApplication1.Migrations
                 name: "DOCTOR_H",
                 columns: table => new
                 {
-                    Doctor_id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Doctor_id = table.Column<string>(type: "nvarchar(450)", nullable: false),
                     Account_id = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Hospital_id = table.Column<int>(type: "int", nullable: false),
+                    Hospital_id = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Doctor_name = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Doctor_specialization = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Doctor_phone = table.Column<string>(type: "nvarchar(max)", nullable: false),
@@ -47,8 +46,7 @@ namespace WebApplication1.Migrations
                 name: "HOSPITAL_H",
                 columns: table => new
                 {
-                    Hospital_id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Hospital_id = table.Column<string>(type: "nvarchar(450)", nullable: false),
                     Hospital_name = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Hospital_address = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Hospital_phone = table.Column<string>(type: "nvarchar(max)", nullable: false)
@@ -62,10 +60,9 @@ namespace WebApplication1.Migrations
                 name: "MEDICAL_RECORD_H",
                 columns: table => new
                 {
-                    MRecord_id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
+                    MRecord_id = table.Column<string>(type: "nvarchar(450)", nullable: false),
                     Patient_id = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Doctor_id = table.Column<int>(type: "int", nullable: false),
+                    Doctor_id = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     MRecord_diagnosis = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     MRecord_treatmentplan = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     MRecord_date = table.Column<DateOnly>(type: "date", nullable: false),
@@ -88,7 +85,7 @@ namespace WebApplication1.Migrations
                     Patient_phone = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Patient_email = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Patient_address = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Patient_nhicard = table.Column<int>(type: "int", nullable: false),
+                    Patient_nhicard = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Patient_nidcard = table.Column<string>(type: "nvarchar(max)", nullable: false)
                 },
                 constraints: table =>
@@ -100,10 +97,9 @@ namespace WebApplication1.Migrations
                 name: "RESERVATION_H",
                 columns: table => new
                 {
-                    Reserv_id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    Patient_id = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Doctor_id = table.Column<int>(type: "int", nullable: false),
+                    Reserv_id = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    Patient_id = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Doctor_id = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Reserv_time = table.Column<DateTime>(type: "datetime2", nullable: false),
                     Reserv_stat = table.Column<string>(type: "nvarchar(max)", nullable: false)
                 },
