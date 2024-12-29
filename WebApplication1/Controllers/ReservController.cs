@@ -39,8 +39,27 @@ namespace WebApplication1.Controllers
                             .GroupBy(result => result.Doctor_specialization)
                             .Select(group => group.Key)
                             .ToListAsync();
-
+            ViewBag.Hospital = hospital;
             ViewData["Department"] = searchDpm;
+            return View();
+        }
+        public async Task<IActionResult> reservTable(string department, string hospital)
+        {
+            var reservations = await (from reserv in _context.RESERVATION_H
+                                      join doctor in _context.DOCTOR_H on reserv.Doctor_id equals doctor.Doctor_id
+                                      where doctor.Doctor_specialization == department && doctor.Hospital_id == hospital
+                                      orderby reserv.Reserv_time
+                                      select new
+                                      {
+                                          reserv.Reserv_id,
+                                          reserv.Patient_id,
+                                          DoctorName = doctor.Doctor_name,
+                                          reserv.Reserv_time,
+                                          reserv.Reserv_stat
+                                      }).ToListAsync();
+
+            ViewData["Department"] = department;
+            ViewData["Reservations"] = reservations;
             return View();
         }
     }
