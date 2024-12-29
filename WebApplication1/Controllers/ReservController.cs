@@ -61,13 +61,15 @@ namespace WebApplication1.Controllers
                                 reserv.Reserv_time,
                                 reserv.Reserv_stat,
                                 doctor.Doctor_name,
-                                doctor.Doctor_specialization
+                                doctor.Doctor_specialization,
+                                doctor.Hospital_id
                             }
                         )
+                        .Where(result => result.Doctor_specialization == department && result.Hospital_id == hospital)
                         .ToListAsync();
 
-            /*ViewData["Department"] = department;
-            ViewData["Reservations"] = reserv;*/
+            ViewData["Department"] = department;
+
             return View(reserv);
         }
     }
