@@ -18,7 +18,9 @@
                 @foreach (var hospital in northHospitals)
                 {
                     <td style="padding:5px 10px">
-                        <p style="margin-top: 10px; background-color: #C8DBEC; padding: 5px 10px; border-radius: 10px; display: inline-block; width: 200px; text-align: center;">@hospital.Hospital_name</p>
+                        <a class="nav-link text-dark" asp-area="" asp-controller="Reserv" asp-action="searchDepartment" asp-route-hospital="@hospital.Hospital_id">
+                            <p style="margin-top: 10px; background-color: #C8DBEC; padding: 5px 10px; border-radius: 10px; display: inline-block; width: 200px; text-align: center;">@hospital.Hospital_name</p>
+                        </a>
                     </td>
                 }
             </tr>
@@ -34,7 +36,9 @@
                 @foreach (var hospital in centralHospitals)
                 {
                     <td style="padding:5px 10px">
-                        <p style="margin-top: 10px; background-color: #C8DBEC; padding: 5px 10px; border-radius: 10px; display: inline-block; width: 200px; text-align: center;">@hospital.Hospital_name</p>
+                        <a class="nav-link text-dark" asp-area="" asp-controller="Reserv" asp-action="searchDepartment" asp-route-hospital="@hospital.Hospital_id">
+                            <p style="margin-top: 10px; background-color: #C8DBEC; padding: 5px 10px; border-radius: 10px; display: inline-block; width: 200px; text-align: center;">@hospital.Hospital_name</p>
+                        </a>
                     </td>
                 }
             </tr>
@@ -50,7 +54,9 @@
                 @foreach (var hospital in southHospitals)
                 {
                     <td style="padding:5px 10px">
-                        <p style="margin-top: 10px; background-color: #C8DBEC; padding: 5px 10px; border-radius: 10px; display: inline-block; width: 200px; text-align: center;">@hospital.Hospital_name</p>
+                        <a class="nav-link text-dark" asp-area="" asp-controller="Reserv" asp-action="searchDepartment" asp-route-hospital="@hospital.Hospital_id">
+                            <p style="margin-top: 10px; background-color: #C8DBEC; padding: 5px 10px; border-radius: 10px; display: inline-block; width: 200px; text-align: center;">@hospital.Hospital_name</p>
+                        </a>
                     </td>
                 }
             </tr>
