@@ -2,7 +2,10 @@
 @{
     ViewData["Title"] = "reservTable";
     var dpm = ViewData["Department"] as string; //單字as string ， list就as List<string>
-    var reserv = ViewData["Reservations"] as List<string>;
+    var reserv = ViewData["Reservations"] as List<dynamic>;
+    //var morning = Model.Where(m => m.Reserv_time.Contains("上午 08:30:00")).ToList();
+    //var afternoon = Model.Where(m => m.Reserv_time.Contains("下午 01:30:00")).ToList();
+    //var night = Model.Where(m => m.Reserv_time.Contains("下午 06:00:00")).ToList();
 }
 
 <p style="font-size: 25px;"><img src="~/images/reserv.png" width="30px" class="d-inline-block align-text-top" alt="預約時段">@(dpm)預約時段</p>
@@ -27,6 +30,12 @@
             <td height: 100px;">
                 <img src="/images/830.png" class="d-inline-block align-text-top" alt="看診科目" style="border-radius: 10px;">
             </td>
+            @foreach (var reservT in reserv)
+            {
+                <td style="padding:5px 10px">
+                        <p>@reservT</p>
+                </td>
+            }
 
         </tr>
         <!-- 下午時段 -->

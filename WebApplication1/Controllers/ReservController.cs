@@ -58,11 +58,11 @@ namespace WebApplication1.Controllers
                     doctor.Doctor_id,
                     reserv.Reserv_time,
                     reserv.Reserv_stat,
+                    doctor.Doctor_name,
                     doctor.Doctor_specialization,
                     doctor.Hospital_id
                 }
             )
-            .Where(x => x.Doctor_specialization == department && x.Hospital_id == hospital)
             .OrderBy(x => x.Reserv_time)
             .ToListAsync();
             
