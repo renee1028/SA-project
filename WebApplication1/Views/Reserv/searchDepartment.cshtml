@@ -1,4 +1,4 @@
-﻿@model WebApplication1.Models.Doctor
+﻿@model List<string>
 @{
     ViewData["Title"] = "searchDepartment";
     var dpm = ViewData["Department"] as List<string>;
@@ -13,10 +13,10 @@
     @foreach (var department in dpm)
     {
         <div style="text-align: center;">
-            <a class="nav-link text-dark" asp-area="" asp-controller="Reserv" asp-action="reservTable" asp-route-department="@department">
+            <a class="nav-link text-dark" asp-area="" asp-controller="MRecord" asp-action="MRecordList">
                 <img src="/images/@(department).png" width="150" class="d-inline-block align-text-top" alt="看診科目" style="border-radius: 10px;">
-                <p style="margin-top: 10px; background-color: #D6E4F0; padding: 5px 10px; border-radius: 10px; display: inline-block; width: 150px; text-align: center;">@department</p>
             </a>
+            <p style="margin-top: 10px; background-color: #D6E4F0; padding: 5px 10px; border-radius: 10px; display: inline-block; width: 150px; text-align: center;">@department</p>
         </div>
     }
 </div>

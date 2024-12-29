@@ -1,5 +1,4 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 using WebApplication1.Data;
 
 namespace WebApplication1.Controllers
@@ -26,22 +25,20 @@ namespace WebApplication1.Controllers
             return View(searchH);
         }
 
-        public async Task<IActionResult> searchDepartment(string hospital)
+        public IActionResult searchDepartment()
         {
-            if (HttpContext.Session.GetString("Account_name") == null)
+            /*if (HttpContext.Session.GetString("Account_name") == null)
             {
                 TempData["message"] = "請登入!";
                 return RedirectToAction("Login", "Account");
-            }
+            }*/
 
-            var searchDpm = await _context.DOCTOR_H
-                            .Where(result => result.Hospital_id == hospital)
-                            .GroupBy(result => result.Doctor_specialization)
-                            .Select(group => group.Key)
-                            .ToListAsync();
-
+            var searchDpm = _context.DOCTOR_H
+                .GroupBy(result => result.Doctor_specialization)
+                .Select(group => group.Key)
+                .ToList();
             ViewData["Department"] = searchDpm;
-            return View();
+            return View(searchDpm);
         }
     }
 }

@@ -14,10 +14,6 @@ namespace WebApplication1.Controllers
             _context = context;
         }
 
-        public IActionResult Index()
-        {
-            return View();
-        }
 
         public IActionResult searchPage()
         {
@@ -26,10 +22,11 @@ namespace WebApplication1.Controllers
                 TempData["message"] = "請登入!";
                 return RedirectToAction("Login", "Account");
             }
-
+            //選擇病例或是看診報告
             return View();
         }
 
+        //看診紀錄
         [HttpGet]
         public async Task<IActionResult> Consultation(string specialization, string doctorName, string recordDate)
         {
@@ -38,7 +35,14 @@ namespace WebApplication1.Controllers
                 TempData["message"] = "請登入!";
                 return RedirectToAction("Login", "Account");
             }
+            var accountid = HttpContext.Session.GetString("Account_id");
+
+            var patientid = await _context.PATIENT_H
+                                          .Where(p => p.Account_id == accountid)
+                                          .Select(p => p.Patient_id)
+                                          .FirstOrDefaultAsync();
             var mRecordsQuery = _context.MEDICAL_RECORD_H
+                .Where((p => p.Patient_id == patientid))
                 .Join(
                     _context.DOCTOR_H,                          // 連接 DOCTOR_H 表
                     medicalRecord => medicalRecord.Doctor_id,   // MEDICAL_RECORD_H 的 Doctor_id
@@ -117,13 +121,13 @@ namespace WebApplication1.Controllers
                 return RedirectToAction("Login", "Account");
             }
             var accountid = HttpContext.Session.GetString("Account_id");
-            // 使用 EF Core 查詢 Patient_id
+
             var patientid = await _context.PATIENT_H
                                           .Where(p => p.Account_id == accountid)
                                           .Select(p => p.Patient_id)
                                           .FirstOrDefaultAsync();
 
-            var mRecordsQuery = _context.MEDICAL_RECORD_H
+            var allRecordsQuery = _context.MEDICAL_RECORD_H
             .Where((p => p.Patient_id == patientid))
             .Join(
                 _context.DOCTOR_H,                          // 從 DOCTOR_H 表中查詢
@@ -141,6 +145,29 @@ namespace WebApplication1.Controllers
                 }
             );
 
+            // 基於完整病例內容生成選項
+            var allRecords = await allRecordsQuery.ToListAsync();
+            var doctorSpecializations = allRecords
+                .Select(record => record.Doctor_specialization)
+                .Distinct()
+                .ToList();
+            var doctorNames = allRecords
+                .Select(record => record.Doctor_name)
+                .Distinct()
+                .ToList();
+            var recordDates = allRecords
+                .Select(record => record.MRecord_date)
+                .Distinct()
+                .ToList();
+            // 傳遞完整選項資料到 View
+            ViewData["DoctorSpecializations"] = doctorSpecializations;
+            ViewData["DoctorNames"] = doctorNames;
+            ViewData["RecordDates"] = recordDates;
+
+            // 根據過濾條件篩選資料
+            var mRecordsQuery = allRecordsQuery;
+
+            // 根據科別過濾
             if (!string.IsNullOrEmpty(specialization))
             {
                 mRecordsQuery = mRecordsQuery.Where(record => record.Doctor_specialization == specialization);
@@ -151,7 +178,7 @@ namespace WebApplication1.Controllers
             {
                 mRecordsQuery = mRecordsQuery.Where(record => record.Doctor_name == doctorName);
             }
-
+            //病例Date過濾
             if (!string.IsNullOrEmpty(recordDate))
             {
                 var date = DateTime.Parse(recordDate);  // 將字串轉換為 DateTime
@@ -163,52 +190,46 @@ namespace WebApplication1.Controllers
                 .OrderByDescending(record => record.MRecord_date)
                 .ToListAsync();  // 獲取結果
 
-            var recordDates = mRecords
-                            .Select(record => record.MRecord_date)
-                            .Distinct()
-                            .ToList();
-
-            // 將資料傳遞到視圖中
-            ViewData["RecordDates"] = recordDates;
-
             if (!mRecords.Any())
             {
                 ViewData["Message"] = "找不到資料";
             }
 
-            var doctorSpecializations = mRecords.Select(record => record.Doctor_specialization).Distinct().ToList();
-            ViewData["DoctorSpecializations"] = doctorSpecializations;
-
-            var doctorNames = mRecords.Select(record => record.Doctor_name).Distinct().ToList();
-            ViewData["DoctorNames"] = doctorNames;
-
             return View(mRecords);
         }
+        //獲取該科別的醫師
         public async Task<IActionResult> GetDoctorsBySpecialization(string specialization)
         {
             if (string.IsNullOrEmpty(specialization))
-        {
-            return Json(new { doctors = new List<string>() }); // 如果沒有選擇科別，返回空醫師列表
-        }
+            {
+                return Json(new { doctors = new List<string>() }); // 如果沒有選擇科別，返回空醫師列表
+            }
 
-        // 查詢該科別有病歷記錄的醫師
-        var doctors = await _context.MEDICAL_RECORD_H
-            .Join(
-                _context.DOCTOR_H,
-                medicalRecord => medicalRecord.Doctor_id,   // 使用病歷表中的 Doctor_id
-                doctor => doctor.Doctor_id,                  // 使用醫師表中的 Doctor_id
-                (medicalRecord, doctor) => new
-                {
-                    doctor.Doctor_name,
-                    doctor.Doctor_specialization
-                }
-            )
-            .Where(result => result.Doctor_specialization == specialization)  // 根據科別過濾
-            .GroupBy(result => result.Doctor_name)  // 根據醫師名稱分組，確保每個醫師只有一個選項
-            .Select(group => group.Key)  // 只選擇醫師名稱
-            .ToListAsync();
+            var accountid = HttpContext.Session.GetString("Account_id");
 
-        return Json(new { doctors });
+            var patientid = await _context.PATIENT_H
+                                          .Where(p => p.Account_id == accountid)
+                                          .Select(p => p.Patient_id)
+                                          .FirstOrDefaultAsync();
+            // 查詢該科別有病歷記錄的醫師
+            var doctors = await _context.MEDICAL_RECORD_H
+                .Where((p => p.Patient_id == patientid))
+                .Join(
+                    _context.DOCTOR_H,
+                    medicalRecord => medicalRecord.Doctor_id,   // 使用病歷表中的 Doctor_id
+                    doctor => doctor.Doctor_id,                  // 使用醫師表中的 Doctor_id
+                    (medicalRecord, doctor) => new
+                    {
+                        doctor.Doctor_name,
+                        doctor.Doctor_specialization
+                    }
+                )
+                .Where(result => result.Doctor_specialization == specialization)  // 根據科別過濾
+                .GroupBy(result => result.Doctor_name)  // 根據醫師名稱分組，確保每個醫師只有一個選項
+                .Select(group => group.Key)  // 只選擇醫師名稱
+                .ToListAsync();
+
+            return Json(new { doctors });
         }
 
         public async Task<IActionResult> Details(string? Id)
