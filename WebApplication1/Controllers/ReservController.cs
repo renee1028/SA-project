@@ -67,14 +67,14 @@ namespace WebApplication1.Controllers
                         )
                         .Where(result => result.Doctor_specialization == department && result.Hospital_id == hospital)
                         .ToListAsync();
-
+            ViewBag.Hospital= hospital;
             ViewData["Department"] = department;
 
             return View(reserv);
         }
 
         [HttpGet]
-        public async Task<IActionResult> confirmReserv(string reserv)
+        public async Task<IActionResult> confirmReserv(string reserv, string hospital)
         {
             var confirm = await _context.RESERVATION_H
                         .Join(
@@ -94,14 +94,28 @@ namespace WebApplication1.Controllers
                         )
                         .Where(result => result.Reserv_id == reserv)
                         .ToListAsync();
-            ViewData["Confirm"] = confirm;
-            
+            var hospitalname=await _context.HOSPITAL_H
+                            .Where(p=>p.Hospital_id==hospital)
+                            .Select(p =>p.Hospital_name)
+                            .FirstOrDefaultAsync();
+            ViewData["hospital"] = hospitalname;
+
             var accountid = HttpContext.Session.GetString("Account_id");
 
-            var patientid = await _context.PATIENT_H
-                                          .Where(p => p.Account_id == accountid)
-                                          .FirstOrDefaultAsync();
-            ViewData["Patient"] = patientid;
+            var info = await _context.PATIENT_H
+                .Where((p => p.Account_id == accountid))
+                .Select(info => new
+                {
+                    Name=info.Patient_name,
+                    Nidcard=info.Patient_nidcard,
+                    birth=info.Patient_birth,
+                    Phone=info.Patient_phone
+                })
+                .FirstOrDefaultAsync();
+            ViewData["Name"] = info.Name;
+            ViewData["Nidcard"]=info.Nidcard;
+            ViewData["birth"] = info.birth;
+            ViewData["Phone"] = info.Phone;
 
             return View(confirm);
         }

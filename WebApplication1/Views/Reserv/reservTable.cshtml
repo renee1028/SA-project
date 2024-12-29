@@ -2,6 +2,7 @@
 @{
     ViewData["Title"] = "reservTable";
     var dpm = ViewData["Department"] as string; //單字as string ， list就as List<string>
+    var hospital = ViewBag.Hospital;
     var morning = Model.Where(m => m.Reserv_time.Hour == 8 && m.Reserv_time.Minute == 30).ToList();
     var afternoon = Model.Where(m => m.Reserv_time.Hour == 13 && m.Reserv_time.Minute == 30).ToList();
     var night = Model.Where(m => m.Reserv_time.Hour == 18 && m.Reserv_time.Minute == 00).ToList();
@@ -37,7 +38,7 @@
                     {
                         <br />
                         <p>@morning.First(m => m.Reserv_time.DayOfWeek == (DayOfWeek)i).Doctor_name 醫師</p>
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Reserv" asp-action="confirmReserv" asp-route-reserv="@morning.First(m => m.Reserv_time.DayOfWeek == (DayOfWeek)i).Reserv_id">
+                        <a class="nav-link text-dark" asp-area="" asp-controller="Reserv" asp-action="confirmReserv" asp-route-hospital="@hospital"  asp-route-reserv="@morning.First(m => m.Reserv_time.DayOfWeek == (DayOfWeek)i).Reserv_id">
                             <button type="submit" class="btn btn-info btn-sm d-block d-sm-inline" style="background-color:#65A7B2;border-radius: 10px;">預約</button>
                         </a>
                         <br />
@@ -63,7 +64,8 @@
                         {
                             <br />
                             <p>@afternoon.First(m => m.Reserv_time.DayOfWeek == (DayOfWeek)i).Doctor_name 醫師</p>
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Reserv" asp-action="confirmReserv">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Reserv" asp-action="confirmReserv" asp-route-hospital="@hospital" asp-route-reserv="@afternoon.First(m => m.Reserv_time.DayOfWeek == (DayOfWeek)i).Reserv_id">
+                                >
                                 <button type="submit" class="btn btn-info btn-sm d-block d-sm-inline" style="background-color:#65A7B2;border-radius: 10px;">預約</button>
                             </a>
                             <br />
@@ -89,7 +91,8 @@
                         {
                             <br />
                             <p>@night.First(m => m.Reserv_time.DayOfWeek == (DayOfWeek)i).Doctor_name 醫師</p>
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Reserv" asp-action="confirmReserv">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Reserv" asp-action="confirmReserv" asp-route-hospital="@hospital" asp-route-reserv="@night.First(m => m.Reserv_time.DayOfWeek == (DayOfWeek)i).Reserv_id">
+                                >
                                 <button type="submit" class="btn btn-info btn-sm d-block d-sm-inline" style="background-color:#65A7B2;border-radius: 10px;">預約</button>
                             </a>
                             <br />
