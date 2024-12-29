@@ -1,65 +1,28 @@
 ﻿@model IEnumerable<dynamic>
 @{
     ViewData["Title"] = "searchHospital";
-    var northHospitals = Model.Where(m => m.Hospital_address.Contains("台北市") || m.Hospital_address.Contains("桃園市")).ToList();
-    var centralHospitals = Model.Where(m => m.Hospital_address.Contains("台中市") || m.Hospital_address.Contains("新竹市")).ToList();
-    var southHospitals = Model.Where(m => m.Hospital_address.Contains("台南市") || m.Hospital_address.Contains("高雄市")).ToList();
+    var regions = new Dictionary<string, IEnumerable<dynamic>>
+    {
+        { "北部", Model.Where(m => m.Hospital_address.Contains("台北市") || m.Hospital_address.Contains("桃園市")) },
+        { "中部", Model.Where(m => m.Hospital_address.Contains("台中市") || m.Hospital_address.Contains("新竹市")) },
+        { "南部", Model.Where(m => m.Hospital_address.Contains("台南市") || m.Hospital_address.Contains("高雄市")) }
+    };
 }
-
-<p style="font-size: 25px;"><img src="~/images/reserv.png" width="30px" class="d-inline-block align-text-top" alt="可預約醫院">查詢可預約醫院</p>
+<p class="page-title"><img src="~/images/reserv.png" width="30px" alt="可預約醫院"> 查詢可預約醫院</p>
 <hr>
 
-<h3 style="text-align: center; background-color: #A4C2C7; padding: 10px; margin: 0; font-size: 1.25rem; border-radius: 5px; border: 1px solid #ddd; color: #FFFFFF;">醫院</h3>
-<div style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
-    <h4 style="margin-top: 10px; background-color: #CFE9F3; padding: 5px 10px; border-radius: 5px; display: inline-block; width: 150px; text-align: center;border: 1px solid #ddd; color: #4F566C;">北部</h4>
-    <table>
-        <tbody>
-            <tr style="display: flex; flex-wrap: wrap;">
-                @foreach (var hospital in northHospitals)
-                {
-                    <td style="padding:5px 10px">
-                        <a class="nav-link text-dark" asp-area="" asp-controller="Reserv" asp-action="searchDepartment" asp-route-hospital="@hospital.Hospital_id">
-                            <p style="margin-top: 10px; background-color: #C8DBEC; padding: 5px 10px; border-radius: 10px; display: inline-block; width: 200px; text-align: center;">@hospital.Hospital_name</p>
-                        </a>
-                    </td>
-                }
-            </tr>
-        </tbody>
-    </table>
-</div>
-
-<div style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
-    <h4 style="margin-top: 10px; background-color: #CFE9F3; padding: 5px 10px; border-radius: 5px; display: inline-block; width: 150px; text-align: center;border: 1px solid #ddd; color: #4F566C;">中部</h4>
-    <table>
-        <tbody>
-            <tr style="display: flex; flex-wrap: wrap;">
-                @foreach (var hospital in centralHospitals)
-                {
-                    <td style="padding:5px 10px">
-                        <a class="nav-link text-dark" asp-area="" asp-controller="Reserv" asp-action="searchDepartment" asp-route-hospital="@hospital.Hospital_id">
-                            <p style="margin-top: 10px; background-color: #C8DBEC; padding: 5px 10px; border-radius: 10px; display: inline-block; width: 200px; text-align: center;">@hospital.Hospital_name</p>
-                        </a>
-                    </td>
-                }
-            </tr>
-        </tbody>
-    </table>
-</div>
-
-<div style="display: flex; flex-direction: column; align-items: center; justify-content: center; margin-bottom: 30px;">
-    <h4 style="margin-top: 10px; background-color: #CFE9F3; padding: 5px 10px; border-radius: 5px; display: inline-block; width: 150px; text-align: center;border: 1px solid #ddd; color: #4F566C;">南部</h4>
-    <table>
-        <tbody>
-            <tr style="display: flex; flex-wrap: wrap;">
-                @foreach (var hospital in southHospitals)
-                {
-                    <td style="padding:5px 10px">
-                        <a class="nav-link text-dark" asp-area="" asp-controller="Reserv" asp-action="searchDepartment" asp-route-hospital="@hospital.Hospital_id">
-                            <p style="margin-top: 10px; background-color: #C8DBEC; padding: 5px 10px; border-radius: 10px; display: inline-block; width: 200px; text-align: center;">@hospital.Hospital_name</p>
-                        </a>
-                    </td>
-                }
-            </tr>
-        </tbody>
-    </table>
-</div>
+@foreach (var region in regions)
+{
+    <div class="region-section">
+        <h4 class="region-title">@region.Key</h4>
+        <div class="hospital-grid">
+            @foreach (var hospital in region.Value)
+            {
+                <a class="hospital-card" asp-area="" asp-controller="Reserv" asp-action="searchDepartment" asp-route-hospital="@hospital.Hospital_id">
+                    <img class="hospital-image" src="~/images/hospital/@(hospital.Hospital_name).jpg" alt="@hospital.Hospital_name" />
+                    <p class="hospital-name">@hospital.Hospital_name</p>
+                </a>
+            }
+        </div>
+    </div>
+}

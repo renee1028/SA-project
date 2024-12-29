@@ -10,14 +10,18 @@
 
 <h3 style="text-align: center; background-color: #A4C2C7; padding: 10px; margin: 0; font-size: 1.25rem; border-radius: 5px; border: 1px solid #ddd; color: #FFFFFF;">門診科目</h3>
 
-<div style="display: flex; justify-content: center; align-items: flex-start; gap: 150px;">
-    @foreach (var department in dpm)
-    {
-        <div style="text-align: center;">
-            <a class="nav-link text-dark" asp-area="" asp-controller="Reserv" asp-action="reservTable" asp-route-department="@department" asp-route-hospital="@hospital">
-                <img src="/images/@(department).png" width="150" class="d-inline-block align-text-top" alt="看診科目" style="border-radius: 10px;">
-                <p style="margin-top: 10px; background-color: #D6E4F0; padding: 5px 10px; border-radius: 10px; display: inline-block; width: 150px; text-align: center;">@department</p>
-            </a>
-        </div>
-    }
+<div class="container mt-4">
+    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4 g-4">
+        @foreach (var department in dpm)
+        {
+            <div class="col">
+                <a asp-area="" asp-controller="Reserv" asp-action="reservTable" asp-route-department="@department" asp-route-hospital="@hospital" class="text-decoration-none text-dark">
+                    <img src="/images/@(department).png" class="img-fluid" alt="@department" style="border-radius: 10px; height: 150px; object-fit: cover;">
+                    <div class="py-2">
+                        <p style="margin-top: 10px; background-color: #D6E4F0; padding: 5px 10px; border-radius: 10px; display: inline-block; width: 150px; text-align: center;">@department</p>
+                    </div>
+                </a>
+            </div>
+        }
+    </div>
 </div>
