@@ -11,13 +11,12 @@
         }
     </script>
 }
-<h2>測試成功</h2>
 <h2>帳號登入</h2>
 <h5>帳號:A123456789 <br />密碼:123456</h5>
 
 <form action="@Url.Action("Login")" method="post">
     <p>帳號: @Html.TextBox("Account", "", new { @class = "form-control", placeholder = "身份證字號" })</p>
-    <p>密碼: @Html.Password("pw", "", new { @class = "form-control" })</p>
+    <p>密碼: @Html.Password("pw", "", new { @class = "form-control", placeholder = "密碼自訂" })</p>
     <button type="submit" class="btn btn-info">登入</button>
 </form>
 <br />
