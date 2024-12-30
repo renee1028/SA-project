@@ -112,10 +112,17 @@ namespace WebApplication1.Controllers
                     Phone=info.Patient_phone
                 })
                 .FirstOrDefaultAsync();
-            ViewData["Name"] = info.Name;
-            ViewData["Nidcard"]=info.Nidcard;
-            ViewData["birth"] = info.birth;
-            ViewData["Phone"] = info.Phone;
+            if(info == null)
+            {
+                return NotFound("無法找到對應的患者資料");
+            }
+            else
+            {
+                ViewData["Name"] = info.Name;
+                ViewData["Nidcard"] = info.Nidcard;
+                ViewData["birth"] = info.birth;
+                ViewData["Phone"] = info.Phone;
+            }  
 
             return View(confirm);
         }

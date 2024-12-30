@@ -11,6 +11,22 @@
 <p style="font-size: 25px;"><img src="~/images/reserv.png" width="30px" class="d-inline-block align-text-top" alt="預約時段">@(dpm)預約時段</p>
 <hr>
 
+<!-- Breadcrumb -->
+<nav aria-label="breadcrumb" style="margin-bottom: 5px;">
+    <ol class="breadcrumb" style="background-color: white; padding: 5px; border-radius: 3px;font-size: 0.9rem; line-height: 1.2; ">
+        <li class="breadcrumb-item">
+            <a asp-area="" asp-controller="Account" asp-action="Homepage" class="text-decoration-none" style="color:cornflowerblue">首頁</a>
+        </li>
+        <li class="breadcrumb-item">
+            <a asp-area="" asp-controller="Reserv" asp-action="searchHospital" class="text-decoration-none" style="color:cornflowerblue">查詢可預約醫院</a>
+        </li>
+        <li class="breadcrumb-item">
+            <a asp-area="" asp-controller="Reserv" asp-action="searchDepartment" class="text-decoration-none" style="color:cornflowerblue">查詢可預約門診科目</a>
+        </li>
+        <li class="breadcrumb-item active" aria-current="page">預約時段</li>
+    </ol>
+</nav>
+
 <table class="table" style="text-align: center;">
     <thead>
         <tr>
@@ -45,7 +61,7 @@
                     }
                     else
                     { 
-                        <p> </p>
+                        <p>休息</p>
                     }
                     </div>
                 </td>
@@ -65,14 +81,13 @@
                             <br />
                             <p>@afternoon.First(m => m.Reserv_time.DayOfWeek == (DayOfWeek)i).Doctor_name 醫師</p>
                             <a class="nav-link text-dark" asp-area="" asp-controller="Reserv" asp-action="confirmReserv" asp-route-hospital="@hospital" asp-route-reserv="@afternoon.First(m => m.Reserv_time.DayOfWeek == (DayOfWeek)i).Reserv_id">
-                                >
                                 <button type="submit" class="btn btn-info btn-sm d-block d-sm-inline" style="background-color:#65A7B2;border-radius: 10px;">預約</button>
                             </a>
                             <br />
                         }
                         else
                         {
-                            <span></span>
+                            <span>休息</span>
                         }
                     </div>
                 </td>
