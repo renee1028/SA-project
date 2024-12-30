@@ -94,11 +94,23 @@ namespace WebApplication1.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "PATIENTRESERVATION_H",
+                columns: table => new
+                {
+                    PatientReserv_id = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    Reserv_id = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Patient_id = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_PATIENTRESERVATION_H", x => x.PatientReserv_id);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "RESERVATION_H",
                 columns: table => new
                 {
                     Reserv_id = table.Column<string>(type: "nvarchar(450)", nullable: false),
-                    Patient_id = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Doctor_id = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Reserv_time = table.Column<DateTime>(type: "datetime2", nullable: false),
                     Reserv_stat = table.Column<string>(type: "nvarchar(max)", nullable: false)
@@ -126,6 +138,9 @@ namespace WebApplication1.Migrations
 
             migrationBuilder.DropTable(
                 name: "PATIENT_H");
+
+            migrationBuilder.DropTable(
+                name: "PATIENTRESERVATION_H");
 
             migrationBuilder.DropTable(
                 name: "RESERVATION_H");

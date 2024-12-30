@@ -127,4 +127,8 @@ body {
     text-align: center;
 }
 
+//table
+.table-responsive {
+    overflow-x: auto;
+}
 

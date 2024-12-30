@@ -1,7 +1,7 @@
 ﻿@model IEnumerable<dynamic>
 @{
     ViewData["Title"] = "reservTable";
-    var dpm = ViewData["Department"] as string; //單字as string ， list就as List<string>
+    var dpm = ViewBag.Department as string; //單字as string ， list就as List<string>
     var hospital = ViewBag.Hospital;
     var morning = Model.Where(m => m.Reserv_time.Hour == 8 && m.Reserv_time.Minute == 30).ToList();
     var afternoon = Model.Where(m => m.Reserv_time.Hour == 13 && m.Reserv_time.Minute == 30).ToList();
@@ -21,104 +21,123 @@
             <a asp-area="" asp-controller="Reserv" asp-action="searchHospital" class="text-decoration-none" style="color:cornflowerblue">查詢可預約醫院</a>
         </li>
         <li class="breadcrumb-item">
-            <a asp-area="" asp-controller="Reserv" asp-action="searchDepartment" class="text-decoration-none" style="color:cornflowerblue">查詢可預約門診科目</a>
+            <a asp-area="" asp-controller="Reserv" asp-action="searchDepartment" asp-route-hospital="@hospital" class="text-decoration-none" style="color:cornflowerblue">查詢可預約門診科目</a>
         </li>
         <li class="breadcrumb-item active" aria-current="page">預約時段</li>
     </ol>
 </nav>
 
-<table class="table" style="text-align: center;">
-    <thead>
-        <tr>
-            <th></th>
-            <th>星期一</th>
-            <th>星期二</th>
-            <th>星期三</th>
-            <th>星期四</th>
-            <th>星期五</th>
-            <th>星期六</th>
-            <th>星期日</th>
-        </tr>
-    </thead>
-    <tbody>
-        <!-- 上午時段 -->
-        <tr>
-            <td height: 100px;">
-                <img src="/images/830.png" class="d-inline-block align-text-top" alt="時段" style="border-radius: 10px;">
-            </td>
-            @for (int i = 1; i <= 7; i++)
-            {
-                <td >
-                    <div style="margin:5px; background-color:#E2EDF6; border-radius: 10px;">
-                    @if (morning.Any(m => m.Reserv_time.DayOfWeek == (DayOfWeek)i))
-                    {
-                        <br />
-                        <p>@morning.First(m => m.Reserv_time.DayOfWeek == (DayOfWeek)i).Doctor_name 醫師</p>
-                        <a class="nav-link text-dark" asp-area="" asp-controller="Reserv" asp-action="confirmReserv" asp-route-hospital="@hospital"  asp-route-reserv="@morning.First(m => m.Reserv_time.DayOfWeek == (DayOfWeek)i).Reserv_id">
-                            <button type="submit" class="btn btn-info btn-sm d-block d-sm-inline" style="background-color:#65A7B2;border-radius: 10px;">預約</button>
-                        </a>
-                        <br />
-                    }
-                    else
-                    { 
-                        <p>休息</p>
-                    }
-                    </div>
+<!-- 加上 table-responsive 讓表格在小螢幕下可以水平滾動 -->
+<div class="table-responsive">
+    <table class="table table-borderless" style="table-layout:fixed ;text-align: center;width:100%">
+        <thead>
+            <tr>
+                <th style="min-width:100px"></th>  <!-- 調整 "早上門診圖案" 的欄位寬度 -->
+                <th style="width:auto">星期一</th>
+                <th style="width:auto">星期二</th>
+                <th style="width:auto">星期三</th>
+                <th style="width:auto">星期四</th>
+                <th style="width:auto">星期五</th>
+                <th style="width:auto">星期六</th>
+                <th style="width:auto">星期日</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- 上午時段 -->
+            <tr>
+                <td style="height: 120px; vertical-align: middle;">
+                    <img src="/images/830.png" class="d-inline-block align-text-top" alt="時段" style="border-radius: 10px; max-width: 100%; height: 120px;">
                 </td>
-            }
-        </tr>
-        <!-- 下午時段 -->
-        <tr>
-            <td height: 100px;">
-                <img src="/images/1330.png" class="d-inline-block align-text-top" alt="時段" style="border-radius: 10px;">
-            </td>
-            @for (int i = 1; i <= 7; i++)
-            {
-                <td>
-                    <div style="margin:5px; background-color:#E2EDF6; border-radius: 10px;">
-                        @if (afternoon.Any(m => m.Reserv_time.DayOfWeek == (DayOfWeek)i))
-                        {
-                            <br />
-                            <p>@afternoon.First(m => m.Reserv_time.DayOfWeek == (DayOfWeek)i).Doctor_name 醫師</p>
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Reserv" asp-action="confirmReserv" asp-route-hospital="@hospital" asp-route-reserv="@afternoon.First(m => m.Reserv_time.DayOfWeek == (DayOfWeek)i).Reserv_id">
-                                <button type="submit" class="btn btn-info btn-sm d-block d-sm-inline" style="background-color:#65A7B2;border-radius: 10px;">預約</button>
-                            </a>
-                            <br />
-                        }
-                        else
-                        {
-                            <span>休息</span>
-                        }
-                    </div>
+                @for (int i = 1; i <= 7; i++)
+                {
+                    <td style="height: 120px; vertical-align: middle;">
+                        <div style="display: flex; flex-direction: column; justify-content: center; align-items: center; height: 100%; margin: 2px; width: 100%; background-color: #E2EDF6; border-radius: 10px; gap: 1px;">
+                            @foreach (var item in morning.Where(m => m.Reserv_time.DayOfWeek == (DayOfWeek)i))
+                            {
+                                <p>@item.Doctor_name 醫師</p>
+                                @if (item.Reserv_stat == "available")
+                                {
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="Reserv" asp-action="confirmReserv" asp-route-hospital="@hospital" asp-route-reserv="@item.Reserv_id" asp-route-department="@ViewData["Department"]"style="width:100%">
+                                        <button type="submit" class="btn btn-info btn-sm d-block d-sm-inline" style="width:100%;background-color:#65A7B2;border-radius: 10px;color:white">預約</button>
+                                    </a>
+                                }
+                                else
+                                {
+                                    <p style="color:red">預約已滿</p>
+                                }
+                            }
+                            @if (!morning.Any(m => m.Reserv_time.DayOfWeek == (DayOfWeek)i))
+                            {
+                                <p></p>
+                            }
+                        </div>
+                    </td>
+                }
+            </tr>
+
+            <!-- 下午時段 -->
+            <tr>
+                <td style="height: 120px; vertical-align: middle;">
+                    <img src="/images/1330.png" class="d-inline-block align-text-top" alt="時段" style="border-radius: 10px; max-width: 100%; height: 120px;">
                 </td>
-            }
-        </tr>
-        <!-- 晚上時段 -->
-        <tr>
-            <td height: 100px;">
-                <img src="/images/1800.png" class="d-inline-block align-text-top"  alt="時段" style="border-radius: 10px;">
-            </td>
-            @for (int i = 1; i <= 7; i++)
-            {
-                <td>
-                    <div style="margin:5px; background-color:#E2EDF6; border-radius: 10px;">
-                        @if (night.Any(m => m.Reserv_time.DayOfWeek == (DayOfWeek)i))
-                        {
-                            <br />
-                            <p>@night.First(m => m.Reserv_time.DayOfWeek == (DayOfWeek)i).Doctor_name 醫師</p>
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Reserv" asp-action="confirmReserv" asp-route-hospital="@hospital" asp-route-reserv="@night.First(m => m.Reserv_time.DayOfWeek == (DayOfWeek)i).Reserv_id">
-                                >
-                                <button type="submit" class="btn btn-info btn-sm d-block d-sm-inline" style="background-color:#65A7B2;border-radius: 10px;">預約</button>
-                            </a>
-                            <br />
-                        }
-                        else
-                        {
-                            <span></span>
-                        }
-                    </div>
+                @for (int i = 1; i <= 7; i++)
+                {
+                    <td style="height: 120px; vertical-align: middle;">
+                        <div style="display: flex; flex-direction: column; justify-content: center; align-items: center; height: 100%; margin: 2px; width: 100%; background-color: #E2EDF6; border-radius: 10px; gap: 5px;">
+                            @foreach (var item in afternoon.Where(m => m.Reserv_time.DayOfWeek == (DayOfWeek)i))
+                            {
+                                <p>@item.Doctor_name 醫師</p>
+                                @if (item.Reserv_stat == "available")
+                                {
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="Reserv" asp-action="confirmReserv" asp-route-hospital="@hospital" asp-route-reserv="@item.Reserv_id" asp-route-department="@ViewData["Department"]"style="width:100%">
+                                        <button type="submit" class="btn btn-info btn-sm d-block d-sm-inline" style="background-color:#65A7B2;border-radius: 10px;color:white;width:100%">預約</button>
+                                    </a>
+                                }
+                                else
+                                {
+                                    <p style="color:red">預約已滿</p>
+                                }
+                            }
+                            @if (!afternoon.Any(m => m.Reserv_time.DayOfWeek == (DayOfWeek)i))
+                            {
+                                <p></p>
+                            }
+                        </div>
+                    </td>
+                }
+            </tr>
+
+            <!-- 晚上時段 -->
+            <tr>
+                <td style="height: 120px; vertical-align: middle;">
+                    <img src="/images/1800.png" class="d-inline-block align-text-top" alt="時段" style="border-radius: 10px; max-width: 100%; height: auto;">
                 </td>
-            }
-        </tr>
-    </tbody>
-</table>
+                @for (int i = 1; i <= 7; i++)
+                {
+                    <td style="height: 120px; vertical-align: middle;">
+                        <div style="display: flex; flex-direction: column; justify-content: center; align-items: center; height: 100%; margin: 2px; width: 100%; background-color: #E2EDF6; border-radius: 10px; gap: 5px;">
+                            @foreach (var item in night.Where(m => m.Reserv_time.DayOfWeek == (DayOfWeek)i))
+                            {
+                                <p>@item.Doctor_name 醫師</p>
+                                @if (item.Reserv_stat == "available")
+                                {
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="Reserv" asp-action="confirmReserv" asp-route-hospital="@hospital" asp-route-reserv="@item.Reserv_id" asp-route-department="@ViewData["Department"]" style="width:100%">
+                                        <button type="submit" class="btn btn-info btn-sm d-block d-sm-inline" style="background-color:#65A7B2;border-radius: 10px;color:white;width:100%">預約</button>
+                                    </a>
+                                }
+                                else
+                                {
+                                    <p style="color:red">預約已滿</p>
+                                }
+                            }
+                            @if (!night.Any(m => m.Reserv_time.DayOfWeek == (DayOfWeek)i))
+                            {
+                                <p></p>
+                            }
+                        </div>
+                    </td>
+                }
+            </tr>
+        </tbody>
+    </table>
+</div>

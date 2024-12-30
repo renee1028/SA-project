@@ -12,7 +12,7 @@ using WebApplication1.Data;
 namespace WebApplication1.Migrations
 {
     [DbContext(typeof(CmsContext))]
-    [Migration("20241229095918_InitialDB")]
+    [Migration("20241230161512_InitialDB")]
     partial class InitialDB
     {
         /// <inheritdoc />
@@ -180,6 +180,24 @@ namespace WebApplication1.Migrations
                     b.ToTable("PATIENT_H");
                 });
 
+            modelBuilder.Entity("WebApplication1.Models.PatientReservation", b =>
+                {
+                    b.Property<string>("PatientReserv_id")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("Patient_id")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Reserv_id")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("PatientReserv_id");
+
+                    b.ToTable("PATIENTRESERVATION_H");
+                });
+
             modelBuilder.Entity("WebApplication1.Models.Reservation", b =>
                 {
                     b.Property<string>("Reserv_id")
@@ -187,9 +205,6 @@ namespace WebApplication1.Migrations
 
                     b.Property<string>("Doctor_id")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Patient_id")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Reserv_stat")

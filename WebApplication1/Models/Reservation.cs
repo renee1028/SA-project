@@ -9,9 +9,6 @@ namespace WebApplication1.Models
         [Display(Name = "預約編號")]
         public string Reserv_id { get; set; }
 
-        [Display(Name = "患者")]
-        public string? Patient_id { get; set; }
-
         [Display(Name = "醫生")]
         public string Doctor_id { get; set; }
 

@@ -1,6 +1,8 @@
 ﻿@model IEnumerable<dynamic>
 @{
     ViewData["Title"] = "confirmReserv";
+    var hospital = ViewBag.Hospital;
+    var department = ViewBag.Department;
 }
 <!-- Breadcrumb -->
 <nav aria-label="breadcrumb" style="margin-bottom: 5px;">
@@ -12,7 +14,10 @@
             <a asp-area="" asp-controller="Reserv" asp-action="searchHospital" class="text-decoration-none" style="color:cornflowerblue">查詢可預約醫院</a>
         </li>
         <li class="breadcrumb-item">
-            <a asp-area="" asp-controller="Reserv" asp-action="searchDepartment" class="text-decoration-none" style="color:cornflowerblue">查詢可預約門診科目</a>
+            <a asp-area="" asp-controller="Reserv" asp-action="searchDepartment" asp-route-hospital="@hospital" class="text-decoration-none" style="color:cornflowerblue">查詢可預約門診科目</a>
+        </li>
+        <li class="breadcrumb-item">
+            <a asp-area="" asp-controller="Reserv" asp-action="reservTable" asp-route-hospital="@hospital" asp-route-department="@department" class="text-decoration-none" style="color:cornflowerblue">預約時段</a>
         </li>
         <li class="breadcrumb-item active" aria-current="page">確認看診</li>
     </ol>
@@ -20,27 +25,30 @@
 <p class="page-title"><img src="~/images/reserv.png" width="30px" alt="確認預約"> 確認預約</p>
 <hr>
 
-<h3 style="text-align: center; background-color: #A4C2C7; padding: 10px; margin: 0; font-size: 1.25rem; border-radius: 5px; border: 1px solid #ddd; color: #000000;">@(ViewData["hospital"])</h3>
+<h3 style="text-align: center; background-color: #A4C2C7; padding: 10px; margin: 0; font-size: 1.25rem; border-radius: 5px; border: 1px solid #ddd; color: white;">@(ViewData["hospitalname"])</h3>
 <br />
-
-<div style="background-color: #E2EDF6; padding: 10px; margin: 0; font-size: 1.25rem; border-radius: 5px; border: 1px solid #ddd; color: #000000;">
-    <div>
-        @foreach (var record in Model)
-        {
-            <h3 style="color:red;"><b>@(record.Reserv_time)門診 @(record.Doctor_name)醫師</b></h3>
-        }
+<div style="align-content:center">
+    <div style="background-color: #E2EDF6; padding: 10px; margin: 0; font-size: 1.25rem; border-radius: 5px; border: 1px solid #ddd; color: #000000;">
         <div>
-            <h4>患者資訊</h4>
-            姓名：@(ViewData["Name"])</br>
-            生日：@(ViewData["birth"])</br>
-            電話號碼：@(ViewData["Phone"])</br>
-            身份證字號：@(ViewData["Nidcard"])
+            @foreach (var record in Model)
+            {
+                <h3 style="color:red;"><b>@(record.Reserv_time)門診 @(record.Doctor_name)醫師</b></h3>
+            }
+            <div>
+                <h4>患者資訊</h4>
+                姓名：@(ViewData["Name"])</br>
+                生日：@(ViewData["birth"])</br>
+                電話號碼：@(ViewData["Phone"])</br>
+                身份證字號：@(ViewData["Nidcard"])
+            </div>
         </div>
-
     </div>
-</div>
 
-<br />
-<a class="nav-link text-dark" asp-area="" asp-controller="Reserv" asp-action="searchDepartment">
-    <button type="submit" class="btn btn-info btn-sm d-block d-sm-inline" style="background-color:#65A7B2;border-radius: 10px; color: #FFFFFF">掛號</button>
-</a>
+    <br />
+
+    <!-- 用表單來發送確認掛號的POST請求 -->
+    <form method="post" action="@Url.Action("confirmReserv", "Reserv")">
+        <input type="hidden" name="reserv" value="@(ViewData["reservation_id"])" />
+        <button type="submit" class="btn btn-info btn-sm d-block d-sm-inline" style="background-color:#65A7B2; border-radius: 10px; color: #FFFFFF; width: 200px;height:40px">掛號</button>
+    </form>
+</div>

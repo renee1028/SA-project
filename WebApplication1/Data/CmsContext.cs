@@ -14,6 +14,7 @@ namespace WebApplication1.Data
         public DbSet<MRecord> MEDICAL_RECORD_H { get; set; }
         public DbSet<Patient> PATIENT_H { get; set; }
         public DbSet<Reservation> RESERVATION_H { get; set; }
+        public DbSet<PatientReservation> PATIENTRESERVATION_H { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

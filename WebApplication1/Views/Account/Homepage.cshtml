@@ -4,7 +4,15 @@
     var patient = ViewData["patientInfo"] as dynamic;
     ViewData["Title"] = "HomePage";
 }
-
+@if (TempData["message"] != null)
+{
+    <script>
+        var message = '@Html.Raw(TempData["message"] ?? "")';
+        if (message) {
+            alert(message);
+        }
+    </script>
+}
 <!DOCTYPE html>
 <html lang="zh-TW">
 <head>

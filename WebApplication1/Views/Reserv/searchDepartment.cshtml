@@ -1,6 +1,7 @@
 ﻿@model WebApplication1.Models.Doctor
 @{
     ViewData["Title"] = "searchDepartment";
+    var hospitalname = ViewData["hospitalname"];
     var dpm = ViewData["Department"] as List<string>;
     var hospital = ViewBag.Hospital;
 }
@@ -20,7 +21,7 @@
 <p style="font-size: 25px;"><img src="~/images/reserv.png" width="30px" class="d-inline-block align-text-top" alt="可預約門診科目">查詢可預約門診科目</p>
 <hr>
 
-<h3 style="text-align: center; background-color: #A4C2C7; padding: 10px; margin: 0; font-size: 1.25rem; border-radius: 5px; border: 1px solid #ddd; color: #FFFFFF;">門診科目</h3>
+<h3 style="text-align: center; background-color: #A4C2C7; padding: 10px; margin: 0; font-size: 1.25rem; border-radius: 5px; border: 1px solid #ddd; color: #FFFFFF;">@(hospitalname) 門診科目</h3>
 
 <div class="container mt-4">
     <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4 g-4">
