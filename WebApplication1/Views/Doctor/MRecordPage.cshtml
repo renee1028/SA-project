@@ -1,0 +1,127 @@
+﻿@{
+    ViewData["Title"] = "MRecordPage";
+}
+
+<button id="openModalBtn" class="btn btn-primary">打開模態框</button>
+
+<!-- 顯示結果的區域 -->
+<div id="resultArea" style="margin-top: 20px;">
+    <p style="font-size: 25px;">
+        <img src="~/images/mrecord.png" width="30px" class="d-inline-block align-text-top" alt="病歷資料">
+        查詢病歷
+    </p>
+    <hr />
+
+    <!-- 病歷資料表格 -->
+    <table class="table table-bordered" style="margin-top: 20px;">
+        <thead>
+            <tr>
+                <th>就診日期</th>
+                <th>科別</th>
+                <th>醫師姓名</th>
+                <th>診斷</th>
+                <th>治療計劃</th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+</div>
+<div class="alert alert-warning" role="alert" id="noRecordsAlert" style="display:block;">沒有病歷資料</div>
+
+<!-- 引用模態框 -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title" id="myModalLabel">請輸入患者資訊</h4>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label for="idNumber">身份證字號</label>
+                    <input type="text" class="form-control" id="idNumber" placeholder="請輸入身份證字號">
+                </div>
+                <div class="form-group">
+                    <label for="nhcNumber">健保卡卡號</label>
+                    <input type="text" class="form-control" id="nhcNumber" placeholder="請輸入健保卡卡號">
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">關閉</button>
+                <button type="button" class="btn btn-primary" id="searchBtn">搜尋病歷資料</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/js/bootstrap.min.js"></script>
+
+<script>
+    $(document).ready(function () {
+        // 打開模態框
+        $("#openModalBtn").click(function () {
+            $("#myModal").modal("show");
+        });
+
+        // 搜尋按鈕事件
+        $("#searchBtn").on("click", function () {
+            // 獲取輸入的數據
+            var idNumber = $("#idNumber").val();
+            var nhcNumber = $("#nhcNumber").val();
+
+            // 檢查是否符合資料
+            $.ajax({
+                url: '@Url.Action("ValidatePatient", "Doctor")',  // 這個 action 會用來驗證病患
+                type: 'POST',
+                data: {
+                    idNumber: idNumber,
+                    nhcNumber: nhcNumber
+                },
+                success: function (response) {
+                    if (response.isValid) {
+                        // 更新結果區域顯示病歷資料
+                        $("#idResult").text("身份證字號: " + idNumber);
+                        $("#nhcResult").text("健保卡卡號: " + nhcNumber);
+
+                        // 這裡的 response.patientRecords 會是病歷資料
+                        updateMRecordTable(response.patientRecords);
+
+                        // 關閉模態框
+                        $("#myModal").modal("hide");
+                    } else {
+                        alert("無法找到病歷資料！");
+                    }
+                },
+                error: function () {
+                    alert("發生錯誤，請稍後再試！");
+                }
+            });
+        });
+    });
+
+    // 更新病歷資料表格
+    function updateMRecordTable(records) {
+        if (records && records.length > 0) {
+            var tableBody = $('#resultArea table tbody');
+            tableBody.empty(); // 清空現有的資料
+
+            records.forEach(function (record) {
+                tableBody.append(`
+                        <tr>
+                            <td>${record.MRecord_date}</td>
+                            <td>${record.Doctor_specialization}</td>
+                            <td>${record.Doctor_name}</td>
+                            <td>${record.MRecord_diagnosis}</td>
+                            <td>${record.MRecord_treatmentplan}</td>
+                            <td>
+                                <form method="get" action="/MRecord/Details/${record.MRecord_id}">
+                                    <button type="submit" class="btn btn-info btn-sm d-block d-sm-inline" style="background-color:lightblue">查看詳情</button>
+                                </form>
+                            </td>
+                        </tr>
+                    `);
+            });
+        }
+    }
+</script>
