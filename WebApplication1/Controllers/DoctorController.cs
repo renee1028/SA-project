@@ -13,8 +13,33 @@ namespace WebApplication1.Controllers
         {
             _context = context;
         }
-        public IActionResult Index()
+        public async Task<IActionResult> DocHomepage()
         {
+            if (HttpContext.Session.GetString("Account_name") == null)
+            {
+                TempData["message"] = "請登入!";
+                return RedirectToAction("Login", "Account");
+            }
+
+            var accountid = HttpContext.Session.GetString("Account_id");
+
+            var info = await _context.DOCTOR_H
+                            .Where((p => p.Account_id == accountid))
+                            .Join(
+                                    _context.HOSPITAL_H,
+                                    doctor => doctor.Hospital_id,
+                                    hospital => hospital.Hospital_id,
+                                    (doctor, hospital) => new
+                                    {
+                                        doctor.Doctor_name,
+                                        doctor.Doctor_specialization,
+                                        doctor.Doctor_phone,
+                                        doctor.Doctor_email,
+                                        hospital.Hospital_name
+                                    }
+                            )
+                            .FirstOrDefaultAsync();
+            ViewData["doctorinfo"] = info;
             return View();
         }
         public IActionResult InputId()

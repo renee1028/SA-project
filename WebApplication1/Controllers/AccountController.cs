@@ -90,7 +90,7 @@ namespace WebApplication1.Controllers
             {
                 string query = $@"SELECT * FROM
                                 ACCOUNT_H
-                                Where Account_name = '{Account}' AND Account_password = '{pw}' AND Account_role='患者'";
+                                Where Account_name = '{Account}' AND Account_password = '{pw}' ";
 
                 using (SqlCommand command = new SqlCommand(query, connection))
                 {
@@ -107,14 +107,22 @@ namespace WebApplication1.Controllers
                          select new Account
                          {
                              Account_name = row["Account_name"].ToString(),
-                             Account_id= row["Account_id"].ToString()
+                             Account_id= row["Account_id"].ToString(),
+                             Account_role = row["Account_role"].ToString()
                          }).ToList();
 
             if (users.Count != 0)
             {
                 HttpContext.Session.SetString("Account_name", users.First().Account_name);
                 HttpContext.Session.SetString("Account_id", users.First().Account_id);
-                return RedirectToAction("Homepage", "Account");
+                if(users.First().Account_role =="患者")
+                {
+                    return RedirectToAction("Homepage", "Account");
+                }
+                else
+                {
+                    return RedirectToAction("DocHomepage", "Doctor");
+                }             
             }
             else
             {
