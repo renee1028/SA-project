@@ -7,10 +7,6 @@
     var afternoon = Model.Where(m => m.Reserv_time.Hour == 13 && m.Reserv_time.Minute == 30).ToList();
     var night = Model.Where(m => m.Reserv_time.Hour == 18 && m.Reserv_time.Minute == 00).ToList();
 }
-
-<p style="font-size: 25px;"><img src="~/images/reserv.png" width="30px" class="d-inline-block align-text-top" alt="預約時段">@(dpm)預約時段</p>
-<hr>
-
 <!-- Breadcrumb -->
 <nav aria-label="breadcrumb" style="margin-bottom: 5px;">
     <ol class="breadcrumb" style="background-color: white; padding: 5px; border-radius: 3px;font-size: 0.9rem; line-height: 1.2; ">
@@ -26,6 +22,9 @@
         <li class="breadcrumb-item active" aria-current="page">預約時段</li>
     </ol>
 </nav>
+
+<p style="font-size: 25px;"><img src="~/images/reserv.png" width="30px" class="d-inline-block align-text-top" alt="預約時段">@(dpm)預約時段</p>
+<hr>
 
 <!-- 加上 table-responsive 讓表格在小螢幕下可以水平滾動 -->
 <div class="table-responsive">

@@ -132,3 +132,15 @@ body {
     overflow-x: auto;
 }
 
+//首頁預約看診
+.scrollable-table {
+    max-height: 50px; /* 限制表格區域高度 */
+    overflow-y: auto !important; /* 啟用垂直滾動條 */
+    border: 1px solid #ddd; /* 增加邊框方便檢查範圍 */
+    padding: 10px;
+}
+
+.main-content {
+    position: relative; /* 確保內部滾動內容不會影響布局 */
+    overflow: hidden;
+}

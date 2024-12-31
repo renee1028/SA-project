@@ -30,12 +30,43 @@
     <div class="col-md-9 main-content">
         <h2>看診通知</h2>
         <hr />
+        <!-- 顯示預約狀態與詳細資料 -->
+        <div class="scrollable-table">
+            @if (ViewData["patientReserv"] != null && ((List<PatientReservView>)ViewData["patientReserv"]).Count > 0)
+            {
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>預約編號</th>
+                            <th>預約時間</th>
+                            <th>醫師名稱</th>
+                            <th>專業領域</th>
+                            <th>醫院名稱</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var reserv in ViewData["patientReserv"] as List<PatientReservView>)
+                        {
+                            <tr>
+                                <td>@reserv.PatientReserv_id</td>
+                                <td>@reserv.Reserv_time</td>
+                                <td>@reserv.Doctor_name</td>
+                                <td>@reserv.Doctor_specialization</td>
+                                <td>@reserv.Hospital_name</td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
 
-        <div class="form-box">
-            <div class="form-control" readonly id="statusText">
-                尚未預約看診
-            </div>
+
+            }else
+            {
+                <div>
+                    尚未預約看診
+                </div>
+            }
         </div>
+
         <br />
 
         <h2>患者資訊</h2>
@@ -60,13 +91,11 @@
         <p> 出身日期： @patient.Patient_birth</p>
         <p>
             手機號碼：@{
-        var phone = @patient.Patient_phone.ToString();
-        var maskedPhone = phone.Substring(0, 2) + new string('*', phone.Length - 5) + phone.Substring(phone.Length - 3);
-    }
-    @maskedPhone
+                            var phone = @patient.Patient_phone.ToString();
+                            var maskedPhone = phone.Substring(0, 2) + new string('*', phone.Length - 5) + phone.Substring(phone.Length - 3);
+                        }
+                        @maskedPhone
         </p>
-
-        <button class="btn btn-primary" onclick="history.back()">回上一頁</button>
     </div>
 </body>
 </html>
