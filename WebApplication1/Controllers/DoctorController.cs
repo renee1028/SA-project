@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Newtonsoft.Json;
 using WebApplication1.Data;
 using WebApplication1.Models;
 
@@ -32,7 +33,7 @@ namespace WebApplication1.Controllers
         {
             var patient = await _context.PATIENT_H
                                         .FirstOrDefaultAsync(p => p.Patient_nidcard == idNumber && p.Patient_nhicard == nhcNumber);
-
+            
             if (patient != null)
             {
                 // 找到患者，返回病历数据
@@ -50,7 +51,7 @@ namespace WebApplication1.Controllers
                         })
                     .ToListAsync();
 
-                return Json(new { isValid = true, patientRecords });
+                return Json(new { isValid = true, patientRecords});
             }
 
             // 未找到患者
