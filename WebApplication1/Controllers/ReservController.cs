@@ -19,22 +19,22 @@ namespace WebApplication1.Controllers
         }
         public IActionResult searchHospital()
         {
-            /*if (HttpContext.Session.GetString("Account_name") == null)
+            if (HttpContext.Session.GetString("Account_name") == null)
             {
                 TempData["message"] = "請登入!";
                 return RedirectToAction("Login", "Account");
-            }*/
+            }
             var searchH = _context.HOSPITAL_H.ToList();
             return View(searchH);
         }
 
         public async Task<IActionResult> searchDepartment(string hospital)
         {
-            /*if (HttpContext.Session.GetString("Account_name") == null)
+            if (HttpContext.Session.GetString("Account_name") == null)
             {
                 TempData["message"] = "請登入!";
                 return RedirectToAction("Login", "Account");
-            }*/
+            }
 
             var searchDpm = await _context.DOCTOR_H
                             .Where(result => result.Hospital_id == hospital)

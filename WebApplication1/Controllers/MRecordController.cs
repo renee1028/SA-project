@@ -77,6 +77,7 @@ namespace WebApplication1.Controllers
                         Doctor_specialization = combinedDoctor.doctor.Doctor_specialization,
                         Hospital_name = hospital.Hospital_name
                     })
+                .OrderBy(p => p.Reserv_time)
                 .ToListAsync();
 
             ViewData["patientReserv"] = patientReservations;

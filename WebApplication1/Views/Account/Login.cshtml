@@ -12,7 +12,8 @@
     </script>
 }
 <h2>帳號登入</h2>
-<h5>帳號:A123456789 <br />密碼:123456</h5>
+<h5><strong>患者</strong> 帳號:A123456789  密碼:123456</h5>
+<h5><strong>醫護人員</strong> 帳號:DOCR1614  密碼:123456</h5>
 
 <form action="@Url.Action("Login")" method="post">
     <p>帳號: @Html.TextBox("Account", "", new { @class = "form-control", placeholder = "身份證字號" })</p>
