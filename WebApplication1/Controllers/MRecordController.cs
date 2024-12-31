@@ -54,6 +54,31 @@ namespace WebApplication1.Controllers
                         doctor.Doctor_name
                     }
                 );
+            // 取得病患所有的預約資料，並連接到 Reservation_H 表格以取得詳細資料
+            var patientReservations = await _context.PATIENTRESERVATION_H
+                .Where(p => p.Patient_id == patientid)
+                .Join(_context.RESERVATION_H,
+                    patientRes => patientRes.Reserv_id,
+                    reserv => reserv.Reserv_id,
+                    (patientRes, reserv) => new { patientRes, reserv })
+                .Join(_context.DOCTOR_H,
+                    combined => combined.reserv.Doctor_id,
+                    doctor => doctor.Doctor_id,
+                    (combined, doctor) => new { combined, doctor })
+                .Join(_context.HOSPITAL_H,
+                    combinedDoctor => combinedDoctor.doctor.Hospital_id,
+                    hospital => hospital.Hospital_id,
+                    (combinedDoctor, hospital) => new PatientReservView
+                    {
+                        PatientReserv_id = combinedDoctor.combined.patientRes.PatientReserv_id,
+                        Reserv_time = combinedDoctor.combined.reserv.Reserv_time,
+                        Doctor_name = combinedDoctor.doctor.Doctor_name,
+                        Doctor_specialization = combinedDoctor.doctor.Doctor_specialization,
+                        Hospital_name = hospital.Hospital_name
+                    })
+                .ToListAsync();
+
+            ViewData["patientReserv"] = patientReservations;
 
             /*
             // 根據科別過濾

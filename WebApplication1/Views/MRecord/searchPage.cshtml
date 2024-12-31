@@ -1,6 +1,16 @@
 ﻿@{
     ViewData["Title"] = "searchPage";
 }
+<!-- Breadcrumb -->
+<nav aria-label="breadcrumb" style="margin-bottom: 5px;">
+    <ol class="breadcrumb" style="background-color: white; padding: 5px; border-radius: 3px;font-size: 0.9rem; line-height: 1.2; ">
+        <li class="breadcrumb-item">
+            <a asp-area="" asp-controller="Account" asp-action="Homepage" class="text-decoration-none" style="color:cornflowerblue">首頁</a>
+        </li>
+        <li class="breadcrumb-item active" aria-current="page">查詢功能</li>
+    </ol>
+</nav>
+
 <div class="col-lg-9 main-content">
     <p style="font-size: 25px;"><img src="~/images/search.png" width="30px" class="d-inline-block align-text-top" alt="查詢功能">查詢</p>
     <hr />

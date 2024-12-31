@@ -3,6 +3,21 @@
 @{
     ViewData["Title"] = "Details";
 }
+<!-- Breadcrumb -->
+<nav aria-label="breadcrumb" style="margin-bottom: 5px;">
+    <ol class="breadcrumb" style="background-color: white; padding: 5px; border-radius: 3px;font-size: 0.9rem; line-height: 1.2; ">
+        <li class="breadcrumb-item">
+            <a asp-area="" asp-controller="Account" asp-action="Homepage" class="text-decoration-none" style="color:cornflowerblue">首頁</a>
+        </li>
+        <li class="breadcrumb-item">
+            <a asp-area="" asp-controller="MRecord" asp-action="searchPage" class="text-decoration-none" style="color:cornflowerblue">查詢功能</a>
+        </li>
+        <li class="breadcrumb-item">
+            <a asp-area="" asp-controller="MRecord" asp-action="MRecordList" class="text-decoration-none" style="color:cornflowerblue">查詢病例</a>
+        </li>
+        <li class="breadcrumb-item active" aria-current="page">病例詳情</li>
+    </ol>
+</nav>
 
 <h2>病歷詳情</h2>
 

@@ -2,10 +2,53 @@
 @{
     ViewData["Title"] = "Consultation";
 }
+<!-- Breadcrumb -->
+<nav aria-label="breadcrumb" style="margin-bottom: 5px;">
+    <ol class="breadcrumb" style="background-color: white; padding: 5px; border-radius: 3px;font-size: 0.9rem; line-height: 1.2; ">
+        <li class="breadcrumb-item">
+            <a asp-area="" asp-controller="Account" asp-action="Homepage" class="text-decoration-none" style="color:cornflowerblue">首頁</a>
+        </li>
+        <li class="breadcrumb-item">
+            <a asp-area="" asp-controller="MRecord" asp-action="searchPage" class="text-decoration-none" style="color:cornflowerblue">查詢可預約醫院</a>
+        </li>
+        <li class="breadcrumb-item active" aria-current="page">查詢看診紀錄</li>
+    </ol>
+</nav>
 
 <p style="font-size: 25px;"><img src="~/images/record.png" width="30px" class="d-inline-block align-text-top" alt="看診記錄">查詢看診記錄</p>
 <hr />
+@if (ViewData["patientReserv"] != null && ((List<PatientReservView>)ViewData["patientReserv"]).Count > 0)
+{
 
+    <div style="margin-bottom: 30px;">
+        <!-- 科別標題 -->
+        <h3 style="text-align: center; background-color: indianred; padding: 10px; margin: 0; font-size: 1.25rem; border-radius: 5px; border: 1px solid #ddd; color: #FFFFFF;">
+            目前預約
+        </h3>
+
+        <table class="table table-bordered table-hover" style="background-color: #f8efef;">
+            <thead>
+                <tr>
+                    <th>預約時間</th>
+                    <th>專業領域</th>
+                    <th>醫師名稱</th>
+                    <th>醫院名稱</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var reserv in ViewData["patientReserv"] as List<PatientReservView>)
+                {
+                    <tr>
+                        <td>@reserv.Reserv_time</td>
+                        <td>@reserv.Doctor_specialization</td>
+                        <td>@reserv.Doctor_name 醫師</td>
+                        <td>@reserv.Hospital_name</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+}
 @foreach (var group in Model)
 {
     <div style="margin-bottom: 30px;">
@@ -21,7 +64,7 @@
                     <tr>
                         <td>@record.MRecord_date.ToString("yyyy/MM/dd")</td>
                         <td>@record.Doctor_specialization</td>
-                        <td>@record.Doctor_name</td>
+                        <td>@record.Doctor_name 醫師</td>
                     </tr>
                 }
             </tbody>
