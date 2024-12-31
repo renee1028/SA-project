@@ -2,6 +2,16 @@
 @{
     ViewData["Title"] = "Consultation";
 }
+@if (TempData["message"] != null)
+{
+    <script>
+        var message = '@Html.Raw(TempData["message"] ?? "")';
+        if (message) {
+            alert(message);
+        }
+    </script>
+}
+
 <!-- Breadcrumb -->
 <nav aria-label="breadcrumb" style="margin-bottom: 5px;">
     <ol class="breadcrumb" style="background-color: white; padding: 5px; border-radius: 3px;font-size: 0.9rem; line-height: 1.2; ">
@@ -9,7 +19,7 @@
             <a asp-area="" asp-controller="Account" asp-action="Homepage" class="text-decoration-none" style="color:cornflowerblue">首頁</a>
         </li>
         <li class="breadcrumb-item">
-            <a asp-area="" asp-controller="MRecord" asp-action="searchPage" class="text-decoration-none" style="color:cornflowerblue">查詢可預約醫院</a>
+            <a asp-area="" asp-controller="MRecord" asp-action="searchPage" class="text-decoration-none" style="color:cornflowerblue">查詢功能</a>
         </li>
         <li class="breadcrumb-item active" aria-current="page">查詢看診紀錄</li>
     </ol>
@@ -33,6 +43,7 @@
                     <th>專業領域</th>
                     <th>醫師名稱</th>
                     <th>醫院名稱</th>
+                    <th></th>
                 </tr>
             </thead>
             <tbody>
@@ -43,6 +54,15 @@
                         <td>@reserv.Doctor_specialization</td>
                         <td>@reserv.Doctor_name 醫師</td>
                         <td>@reserv.Hospital_name</td>
+                        <td>
+                            <form method="post" action="@Url.Action("Consultation", "MRecord")">
+                                <input type="hidden" name="reservationId" value="@reserv.Reserv_id" />
+                                <button type="submit" class="btn btn-danger btn-sm"
+                                        style="border-radius: 5px;">
+                                    取消預約
+                                </button>
+                            </form>
+                        </td>
                     </tr>
                 }
             </tbody>

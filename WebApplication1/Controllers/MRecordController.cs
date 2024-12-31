@@ -71,6 +71,7 @@ namespace WebApplication1.Controllers
                     (combinedDoctor, hospital) => new PatientReservView
                     {
                         PatientReserv_id = combinedDoctor.combined.patientRes.PatientReserv_id,
+                        Reserv_id = combinedDoctor.combined.reserv.Reserv_id,
                         Reserv_time = combinedDoctor.combined.reserv.Reserv_time,
                         Doctor_name = combinedDoctor.doctor.Doctor_name,
                         Doctor_specialization = combinedDoctor.doctor.Doctor_specialization,
@@ -135,6 +136,44 @@ namespace WebApplication1.Controllers
 
             // 傳遞分組資料到視圖
             return View(groupedBySpecialization);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Consultation(string reservationId)
+        {
+            try
+            {
+                // 查詢預約記錄
+                var PatientReserv = await _context.PATIENTRESERVATION_H
+                                                .FirstOrDefaultAsync(r => r.Reserv_id == reservationId);
+                if (PatientReserv != null)
+                {
+                    // 刪除 PatientReservation 資料
+                    _context.PATIENTRESERVATION_H.Remove(PatientReserv);
+
+                    // 更新 Reservation_stat 狀態
+                    var reserv = await _context.RESERVATION_H
+                                                     .FirstOrDefaultAsync(r => r.Reserv_id == reservationId);
+                    if (reserv != null)
+                    {
+                        reserv.Reserv_stat = "available";
+                    }
+
+                    await _context.SaveChangesAsync(); // 使用非同步儲存變更
+
+                    TempData["Message"] = "預約已成功取消。";
+                }
+                else
+                {
+                    TempData["Message"] = "找不到預約記錄，無法取消。";
+                }
+            }
+            catch (Exception ex)
+            {
+                TempData["Message"] = $"取消失敗：{ex.Message}";
+            }
+
+            return RedirectToAction("Consultation","MRecord");
         }
 
 

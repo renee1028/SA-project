@@ -51,14 +51,14 @@
         <!-- 掛號按鈕 -->
         <form method="post" action="@Url.Action("confirmReserv", "Reserv")">
             <input type="hidden" name="reserv" value="@(ViewData["reservation_id"])" />
-            <button type="submit" class="btn btn-info btn-sm" style="background-color: indianred; border-radius: 10px; color: #FFFFFF; width: 200px; height: 40px;">
+            <button type="submit" class="btn btn-info btn-sm hover-card" style="background-color: indianred; border-radius: 10px; color: #FFFFFF; width: 200px; height: 40px;">
                 確認掛號
             </button>
         </form>
 
         <!-- 返回按鈕 -->
         <a asp-area="" asp-controller="Reserv" asp-action="reservTable" asp-route-hospital="@hospital" asp-route-department="@department" class="text-decoration-none">
-            <button type="button" class="btn btn-info btn-sm" style="background-color: #65A7B2; border-radius: 10px; color: #FFFFFF; width: 200px; height: 40px;">
+            <button type="button" class="btn btn-info btn-sm hover-card" style="background-color: #65A7B2; border-radius: 10px; color: #FFFFFF; width: 200px; height: 40px;">
                 取消掛號
             </button>
         </a>
