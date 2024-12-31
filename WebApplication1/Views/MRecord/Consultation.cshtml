@@ -27,20 +27,18 @@
 
 <p style="font-size: 25px;"><img src="~/images/record.png" width="30px" class="d-inline-block align-text-top" alt="看診記錄">查詢看診記錄</p>
 <hr />
+<div style="margin-bottom: 30px;">
+    <!-- 科別標題 -->
+    <h3 style="text-align: center; background-color: indianred; padding: 10px; margin: 0; font-size: 1.25rem; border-radius: 5px; border: 1px solid #ddd; color: #FFFFFF;">
+        目前預約
+    </h3>
 @if (ViewData["patientReserv"] != null && ((List<PatientReservView>)ViewData["patientReserv"]).Count > 0)
 {
-
-    <div style="margin-bottom: 30px;">
-        <!-- 科別標題 -->
-        <h3 style="text-align: center; background-color: indianred; padding: 10px; margin: 0; font-size: 1.25rem; border-radius: 5px; border: 1px solid #ddd; color: #FFFFFF;">
-            目前預約
-        </h3>
-
         <table class="table table-bordered table-hover" style="background-color: #f8efef;">
             <thead>
                 <tr>
                     <th>預約時間</th>
-                    <th>專業領域</th>
+                    <th>門診科目</th>
                     <th>醫師名稱</th>
                     <th>醫院名稱</th>
                     <th></th>
@@ -57,8 +55,7 @@
                         <td>
                             <form method="post" action="@Url.Action("Consultation", "MRecord")">
                                 <input type="hidden" name="reservationId" value="@reserv.Reserv_id" />
-                                <button type="submit" class="btn btn-danger btn-sm"
-                                        style="border-radius: 5px;">
+                                <button type="submit" class="btn btn-alert btn-sm"style="border-radius: 5px;">
                                     取消預約
                                 </button>
                             </form>
@@ -67,8 +64,15 @@
                 }
             </tbody>
         </table>
-    </div>
-}
+    }else
+    {
+        <table class="table table-bordered table-hover" style="background-color: #f8efef;">
+            <tbody>
+                <tr><td>尚未預約看診</td></tr>
+            </tbody>
+        </table>
+    }
+</div>
 @foreach (var group in Model)
 {
     <div style="margin-bottom: 30px;">

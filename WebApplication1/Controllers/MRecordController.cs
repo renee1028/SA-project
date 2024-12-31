@@ -161,7 +161,7 @@ namespace WebApplication1.Controllers
 
                     await _context.SaveChangesAsync(); // 使用非同步儲存變更
 
-                    TempData["Message"] = "預約已成功取消。";
+                    TempData["Message"] = "預約已成功取消";
                 }
                 else
                 {
